@@ -1,15 +1,15 @@
-# SimpleWebsockets 
-[![Build Status](https://travis-ci.org/citkane/Websocket.jl.svg?branch=master)](https://travis-ci.org/citkane/Websocket.jl)
-[![Coverage Status](https://coveralls.io/repos/github/citkane/Websocket.jl/badge.svg?branch=master)](https://coveralls.io/github/citkane/Websocket.jl?branch=master)
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://citkane.github.io/Websocket.jl/stable)
-[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://citkane.github.io/Websocket.jl/dev)
+# SimpleWebsockets.jl 
+[![Build Status](https://travis-ci.org/citkane/SimpleWebsockets.jl.svg?branch=master)](https://travis-ci.org/citkane/SimpleWebsockets.jl)
+[![Coverage Status](https://coveralls.io/repos/github/citkane/SimpleWebsockets.jl/badge.svg?branch=master)](https://coveralls.io/github/citkane/SimpleWebsockets.jl?branch=master)
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://citkane.github.io/SimpleWebsockets.jl/stable)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://citkane.github.io/SimpleWebsockets.jl/dev)
+[![GitHub Repo stars](https://img.shields.io/github/stars/citkane/SimpleWebsockets.jl?style=social)](https://github.com/citkane/SimpleWebsockets.jl)
 
 A flexible, powerful, high level interface for Websockets in Julia. Provides a SERVER and CLIENT.
 
-## Basic usage server:
-
+## Basic example for SERVER
 ```julia
-using Websocket
+using SimpleWebsockets
 
 server = WebsocketServer()
 ended = Condition() 
@@ -32,10 +32,9 @@ end
 @async serve(server; verbose = true)
 wait(ended)
 ```
-## Basic usage client:
-
+## Basic example for CLIENT
 ```julia
-using Websocket
+using SimpleWebsockets
 
 client = WebsocketClient()
 ended = Condition()

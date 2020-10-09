@@ -1,0 +1,13 @@
+coveralls: true
+language: julia
+julia:
+  - 1.0.5
+  - 1
+os:
+  - linux
+  - osx
+  - window
+  
+branches:
+  only:
+  - master
