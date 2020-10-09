@@ -1,15 +1,15 @@
 # SimpleWebsockets 
-[![Build Status](https://travis-ci.org/citkane/Websocket.jl.svg?branch=master)](https://travis-ci.org/citkane/Websocket.jl)
-[![Coverage Status](https://coveralls.io/repos/github/citkane/Websocket.jl/badge.svg?branch=master)](https://coveralls.io/github/citkane/Websocket.jl?branch=master)
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://citkane.github.io/Websocket.jl/stable)
-[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://citkane.github.io/Websocket.jl/dev)
+[![Build Status](https://travis-ci.org/citkane/SimpleWebsockets.svg?branch=master)](https://travis-ci.org/citkane/SimpleWebsockets)
+[![Coverage Status](https://coveralls.io/repos/github/citkane/SimpleWebsockets/badge.svg?branch=master)](https://coveralls.io/github/citkane/SimpleWebsockets?branch=master)
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://citkane.github.io/SimpleWebsockets/stable)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://citkane.github.io/SimpleWebsockets/dev)
 
 A flexible, powerful, high level interface for Websockets in Julia. Provides a SERVER and CLIENT.
 
 ## Basic usage server:
 
 ```julia
-using Websocket
+using SimpleWebsockets
 
 server = WebsocketServer()
 ended = Condition() 
@@ -35,7 +35,7 @@ wait(ended)
 ## Basic usage client:
 
 ```julia
-using Websocket
+using SimpleWebsockets
 
 client = WebsocketClient()
 ended = Condition()
