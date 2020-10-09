@@ -1,8 +1,8 @@
-# SimpleWebsockets 
-[![Build Status](https://travis-ci.org/citkane/SimpleWebsockets.svg?branch=master)](https://travis-ci.org/citkane/SimpleWebsockets)
-[![Coverage Status](https://coveralls.io/repos/github/citkane/SimpleWebsockets/badge.svg?branch=master)](https://coveralls.io/github/citkane/SimpleWebsockets?branch=master)
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://citkane.github.io/SimpleWebsockets/stable)
-[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://citkane.github.io/SimpleWebsockets/dev)
+# SimpleWebsockets.jl 
+[![Build Status](https://travis-ci.org/citkane/SimpleWebsockets.jl.svg?branch=master)](https://travis-ci.org/citkane/SimpleWebsockets.jl)
+[![Coverage Status](https://coveralls.io/repos/github/citkane/SimpleWebsockets.jl/badge.svg?branch=master)](https://coveralls.io/github/citkane/SimpleWebsockets.jl?branch=master)
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://citkane.github.io/SimpleWebsockets.jl/stable)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://citkane.github.io/SimpleWebsockets.jl/dev)
 
 A flexible, powerful, high level interface for Websockets in Julia. Provides a SERVER and CLIENT.
 
