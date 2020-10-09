@@ -4,8 +4,8 @@ import Sockets: getaddrinfo
 include("testservers.jl")
 include("testclients.jl")
 
-@testset "SimpleWebsockets.jl" begin
-    @info "Testing SimpleWebsockets.jl"
+@testset "SimpleWebsockets" begin
+    @info "Testing SimpleWebsockets"
     @test_nowarn WebsocketServer()
     @test_nowarn WebsocketClient()
 
