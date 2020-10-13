@@ -124,19 +124,31 @@ function listen(
     if !haskey(self.callbacks, key)
         return @warn "WebsocketConnection has no listener for :$key."
     end
+
     if haskey(self.callbacks, key)
+        function errorHandler(err, trace)
+            err = CallbackError(err, trace)
+            callback = self.callbacks[:error]
+            if callback !== false && key !== :error
+                callback(err)
+            else
+                err.log()
+                exit()
+            end
+        end
         if !(self.callbacks[key] isa Function)
             self.callbacks[key] = data -> (
-                @async try
-                    cb(data)
-                catch err
-                    err = CallbackError(err, catch_backtrace())
-                    callback = self.callbacks[:error]
-                    if callback !== false && key !== :error
-                        callback(err)
-                    else
-                        err.log()
-                        exit()
+                if key === :message
+                    try
+                        cb(data)
+                    catch err
+                        errorHandler(err, catch_backtrace())
+                    end
+                else
+                    @async try
+                        cb(data)
+                    catch err
+                        errorHandler(err, catch_backtrace())
                     end
                 end
             )
