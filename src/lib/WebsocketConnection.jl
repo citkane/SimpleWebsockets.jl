@@ -10,6 +10,8 @@ struct WebsocketConnection
     closed::Condition
     keepalive::Dict{Symbol, Union{String, Bool}}
     clients::Union{Array{WebsocketConnection,1}, Nothing}
+    messageChannel::Channel{Union{String, Array{UInt8,1}}}
+    pongChannel::Channel{Union{String, Array{UInt8,1}}}
 
     function WebsocketConnection(
         stream::HTTP.ConnectionPool.Transaction,
@@ -95,7 +97,9 @@ struct WebsocketConnection
             buffers,                                                    #buffers
             Condition(),                                                #closed
             keepalive,                                                  #keepalive
-            clients                                                     #clients
+            clients,                                                    #clients
+            Channel{Union{String, Array{UInt8,1}}}(Inf),                #messageChannel
+            Channel{Union{String, Array{UInt8,1}}}(Inf),                #pongChannel
         )
     end
 end
@@ -137,26 +141,34 @@ function listen(
             end
         end
         if !(self.callbacks[key] isa Function)
-            self.callbacks[key] = data -> (
-                if key === :message
+            if key === :message
+                self.callbacks[key] = data -> ()
+                @async while isopen(self.messageChannel)
+                    message = take!(self.messageChannel)
                     try
-                        cb(data)
+                        cb(message)
                     catch err
                         errorHandler(err, catch_backtrace())
                     end
-                else
+                end
+            elseif key === :pong
+                self.callbacks[key] = data -> ()
+                @async while isopen(self.pongChannel)
+                    message = take!(self.pongChannel)
+                    try
+                        cb(message)
+                    catch err
+                        errorHandler(err, catch_backtrace())
+                    end
+                end            
+            else
+                self.callbacks[key] = data -> (
                     @async try
                         cb(data)
                     catch err
                         errorHandler(err, catch_backtrace())
                     end
-                end
-            )
-            if key === :message && length(self.io[:stash]) > 0
-                binary = self.config.binary
-                data = self.io[:stash]
-                self.callbacks[key](binary ? data : String(data))
-                self.io[:stash] = Array{UInt8, 1}()
+                )
             end
         end
     end
@@ -192,6 +204,8 @@ function startConnection(self::WebsocketConnection, io::HTTP.Streams.Stream)
             closeConnection(self, CLOSE_REASON_INVALID_DATA, err.msg)
         end
     end
+    close(self.messageChannel)
+    close(self.pongChannel)
     self.keepalive[:isopen] && gracefulEnd(self)
 end
 
@@ -414,9 +428,7 @@ function processFrame(self::WebsocketConnection, frame::WebsocketFrame)
             throw(error("[$CLOSE_REASON_MESSAGE_TOO_BIG]Maximum message size of $(self.config.maxReceivedMessageSize) Bytes exceeded"))
         end
         if frame.inf[:fin]
-            callback = self.callbacks[:message]
-            callback isa Function && callback(binary ? data : String(data))
-            !(callback isa Function) && (self.io[:stash] = data)
+            put!(self.messageChannel, binary ? data : String(data))
         else
             unsafe_write(fragmentBuffer, pointer(data), length(data))
         end
@@ -430,9 +442,8 @@ function processFrame(self::WebsocketConnection, frame::WebsocketFrame)
             seekstart(fragmentBuffer)
             data = binary ? read(fragmentBuffer) : read(fragmentBuffer, String)
             isopen(fragmentBuffer) && truncate(fragmentBuffer, 0)
-            callback = self.callbacks[:message]
-            callback isa Function && callback(data)
-            !(callback isa Function) && (self.io[:stash] = data)
+            
+            put!(self.messageChannel, binary ? data : String(data))
         end
 
     elseif opcode === PING_FRAME
@@ -444,7 +455,7 @@ function processFrame(self::WebsocketConnection, frame::WebsocketFrame)
         if message === self.keepalive[:pingmessage]
             self.keepalive[:pongmessage] = message
         elseif callback isa Function
-            callback(binary ? textbuffer(message) : message)
+            put!(self.pongChannel, binary ? textbuffer(message) : message)
         end
     elseif opcode === CONNECTION_CLOSE_FRAME
         description = String(inf[:binaryPayload])
