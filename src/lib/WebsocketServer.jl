@@ -80,7 +80,7 @@ function validateUpgrade(headers::HTTP.Messages.Request)
     if !HTTP.hasheader(headers, "Upgrade", "websocket")
         throw(error("""did not receive "Upgrade: websocket" """))
     end
-    if !HTTP.hasheader(headers, "Connection", "Upgrade") || HTTP.hasheader(headers, "Connection", "keep-alive upgrade")
+    if !HTTP.hasheader(headers, "Connection", "Upgrade") && !HTTP.hasheader(headers, "Connection", "keep-alive, upgrade")
         throw(error("""did not receive "Connection: Upgrade" """))
     end
     if !HTTP.hasheader(headers, "Sec-WebSocket-Version", "13") && !HTTP.hasheader(headers, "Sec-WebSocket-Version", "8")
