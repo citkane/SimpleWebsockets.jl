@@ -142,15 +142,13 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
                 HTTP.setheader(io, "Connection" => "Upgrade")
 
                 startwrite(io)
-
                 client = WebsocketConnection(io.stream, config, self.server[:clients])
                 push!(self.server[:clients], client)
                 callback(client)
                 if HTTP.hasheader(headers, "Sec-WebSocket-Extensions")
-                    close(client, CLOSE_REASON_EXTENSION_REQUIRED)
-                else
-                    startConnection(client, io)
+                    @warn "Websocket extensions not implemented" header = HTTP.header(headers, "Sec-WebSocket-Extensions")
                 end
+                startConnection(client, io)
             catch err
                 @error err exception = (err, catch_backtrace())
                 HTTP.setstatus(io, 400)
