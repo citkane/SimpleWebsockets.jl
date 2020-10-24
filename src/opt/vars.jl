@@ -11,7 +11,7 @@
     The maximum assembled message size that the client will accept
 
 !!! info "fragmentOutgoingMessages"
-    `[true]::Bool`
+    `true::Bool`
 
     Outgoing frames are fragmented if they exceed the set threshold.
 
@@ -21,13 +21,13 @@
     Outgoing frames are fragmented if they exceed this threshold.
 
 !!! info "closeTimeout"
-    `[5]::Int`
+    `5::Int`
 
     The number of seconds to wait after sending a close frame for an acknowledgement to
     return from the server. Will force close the connection if timed out.
 
 !!! info "keepaliveTimeout"
-    `[1]::Union{Int, Bool}`
+    `1::Union{Int, Bool}`
 
     The interval in number of seconds to solicit the server with a ping / pong
     response. The connection will be closed if no pong is received within the interval.
@@ -45,7 +45,7 @@
         in network outage events.
 
 !!! info "useNagleAlgorithm"
-    `[false]::Bool`
+    `false::Bool`
 
     The Nagle Algorithm makes more efficient use of network resources
     by introducing a small delay before sending small packets so that
@@ -57,7 +57,7 @@
         This setting only has an affect as of Julia 1.3
 
 !!! info "binary"
-    `[false]::Bool`
+    `false::Bool`
     
     Use Array{UInt8, 1} instead of String as messaging format.
 """
@@ -71,6 +71,7 @@ const clientConfig = (
     useNagleAlgorithm = false,
     binary = false
 )
+
 """
 # The default options for [`WebsocketServer`](@ref)
 
