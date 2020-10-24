@@ -76,6 +76,36 @@ function listen(
     end
 end
 
+function validateAuth(server::WebsocketServer, headers::HTTP.Messages.Request)
+    if server.config.authfunction isa Function
+        local authheaders
+        basicauth = NamedTuple()
+        if length(server.config.authheaders) > 0
+            authheaders = map(server.config.authheaders) do authheader
+                (Symbol(authheader), HTTP.header(headers, authheader))
+            end
+        else
+            authheaders = map(headers.headers) do authheader
+                (Symbol(first(authheader)), last(authheader))
+            end
+        end
+        if HTTP.hasheader(headers, "Authorization")
+            auth = HTTP.header(headers, "Authorization")
+            if startswith(auth, "Basic")
+                encoded = split(auth, " ")[2]
+                if length(encoded) > 0
+                    encoded = split(String(base64decode(encoded)), ":")
+                    basicauth = (;
+                        username = string(encoded[1]),
+                        password = string(encoded[2]),
+                    )
+                end
+            end
+        end
+        return server.config.authfunction((; authheaders..., basicauth = basicauth))
+    end
+    return true
+end
 function validateUpgrade(headers::HTTP.Messages.Request)
     if !HTTP.hasheader(headers, "Upgrade", "websocket")
         throw(error("""did not receive "Upgrade: websocket" """))
@@ -135,6 +165,11 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
             try
                 headers = io.message
                 validateUpgrade(headers)
+                if !validateAuth(self, headers)
+                    HTTP.setstatus(io, 401)
+                    startwrite(io)
+                    return
+                end
                 HTTP.setstatus(io, 101)
                 key = string(HTTP.header(headers, "Sec-WebSocket-Key"))
                 HTTP.setheader(io, "Sec-WebSocket-Accept" => acceptHash(key))

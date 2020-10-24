@@ -73,8 +73,35 @@ const clientConfig = (
 )
 """
 # The default options for [`WebsocketServer`](@ref)
+
+!!! info "authheaders"
+        `[]::Array{String, 1}`
+
+        An array of specific request headers you want returned for auth evaluation
+
+!!! info "authfunction"
+        `false::Union{Bool, Function}`
+
+        Provide a function with one parametre to check authentication. Must return `Bool`.
+        The provided parametre will receive a `NamedTuple` of:
+        - requested `authheaders` or all request headers
+        - if in the request, a `basicauth` field with a `NamedTuple` with username and password fields
+
+        Example:
+        ```julia
+        function authfunction(details::NamedTuple)::Bool
+            username = "foo"
+            password = "bar"
+            if hasfield(details, :basicauth)
+                auth = details.basicauth
+                return auth.username === username && auth.password === password
+            end
+            return false
+        end
+        ```
+
 !!! info "ssl"
-    `[false]::Bool`
+    `false::Bool`
 
     Whether to use ssl on the server.
     !!! warning
@@ -83,12 +110,12 @@ const clientConfig = (
         reach your server port.
 
 !!! info "sslcert"
-    `[../src/etc/snakeoil.crt in the SimpleWebsockets module dir]::String`
+    `"../src/etc/snakeoil.crt" (in the SimpleWebsockets module dir)::String`
 
     Absolute path to your ssl cert
 
 !!! info "sslkey"
-    `[../src/etc/snakeoil.key in the SimpleWebsockets module dir]::String`
+    `"../src/etc/snakeoil.key" (in the SimpleWebsockets module dir)::String`
 
     Absolute path to your ssl key
 
@@ -113,13 +140,13 @@ const clientConfig = (
     Outgoing frames are fragmented if they exceed this threshold.
 
 !!! info "closeTimeout"
-    `[5]::Int`
+    `5::Int`
 
     The number of seconds to wait after sending a close frame for an acknowledgement to
     return from the client. Will force close the client if timed out.
 
 !!! info "keepaliveTimeout"
-    `[20]::Union{Int, Bool}`
+    `20::Union{Int, Bool}`
 
     The interval in number of seconds to solicit each client with a ping / pong
     response. The client will be closed if no pong is received within the interval.
@@ -137,7 +164,7 @@ const clientConfig = (
         in network outage events.
 
 !!! info "useNagleAlgorithm"
-    `[false]::Bool`
+    `false::Bool`
 
     The Nagle Algorithm makes more efficient use of network resources
     by introducing a small delay before sending small packets so that
@@ -150,7 +177,7 @@ const clientConfig = (
         This setting only has an affect as of Julia 1.3
 
 !!! info "binary"
-    `[false]::Bool`
+    `false::Bool`
     
     Use Array{UInt8, 1} instead of String as messaging format.
 """
@@ -165,7 +192,9 @@ const serverConfig = (
     closeTimeout = 5,
     keepaliveTimeout = 20,
     useNagleAlgorithm = false,
-    binary = false
+    binary = false,
+    authheaders = [],
+    authfunction = false,
 )
 """
     defaultHeaders::Dict{String, String}
