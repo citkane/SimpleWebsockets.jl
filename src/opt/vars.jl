@@ -1,12 +1,12 @@
 """
 # The default options for [`WebsocketClient`](@ref)
 !!! info "maxReceivedFrameSize"
-    `[1 * 0x100000 = 1MiB]::Integer`
+    `0x100000::Integer` 1MiB
 
     The maximum frame size that the client will accept
 
 !!! info "maxReceivedMessageSize"
-    `[8 * 0x100000 = 8MiB]::Integer`
+    `8 * 0x100000::Integer` 8MiB
 
     The maximum assembled message size that the client will accept
 
@@ -16,7 +16,7 @@
     Outgoing frames are fragmented if they exceed the set threshold.
 
 !!! info "fragmentationThreshold"
-    `[16 * 0x0400 = 16KiB]::Integer`
+    `16 * 0x0400::Integer` 16KiB
 
     Outgoing frames are fragmented if they exceed this threshold.
 
@@ -74,33 +74,30 @@ const clientConfig = (
 
 """
 # The default options for [`WebsocketServer`](@ref)
-
 !!! info "authheaders"
-        `[]::Array{String, 1}`
+    `[]::Array{String, 1}`
 
-        An array of specific request headers you want returned for auth evaluation
-
+    An array of specific request headers you want returned for auth evaluation.
 !!! info "authfunction"
-        `false::Union{Bool, Function}`
+    `false::Union{Bool, Function}`
 
-        Provide a function with one parametre to check authentication. Must return `Bool`.
-        The provided parametre will receive a `NamedTuple` of:
-        - requested `authheaders` or all request headers
-        - if in the request, a `basicauth` field with a `NamedTuple` with username and password fields
+    Provide a function with one parametre to check authentication. Must return `Bool`.
+    The provided parametre will receive a `NamedTuple` of:
+    - requested `authheaders` or all request headers
+    - if in the request, a `basicauth` field with a `NamedTuple` with username and password fields
 
-        Example:
-        ```julia
-        function authfunction(details::NamedTuple)::Bool
-            username = "foo"
-            password = "bar"
-            if hasfield(details, :basicauth)
-                auth = details.basicauth
-                return auth.username === username && auth.password === password
-            end
-            return false
+    Example:
+    ```julia
+    function authfunction(details::NamedTuple)::Bool
+        username = "foo"
+        password = "bar"
+        if hasfield(details, :basicauth)
+            auth = details.basicauth
+            return auth.username === username && auth.password === password
         end
-        ```
-
+        return false
+    end
+    ```
 !!! info "ssl"
     `false::Bool`
 
@@ -111,32 +108,32 @@ const clientConfig = (
         reach your server port.
 
 !!! info "sslcert"
-    `"../src/etc/snakeoil.crt" (in the SimpleWebsockets module dir)::String`
+    `"../src/etc/snakeoil.crt"::String` (default is in the SimpleWebsockets module dir, otherwise provide an absolute path)
 
     Absolute path to your ssl cert
 
 !!! info "sslkey"
-    `"../src/etc/snakeoil.key" (in the SimpleWebsockets module dir)::String`
+    `"../src/etc/snakeoil.key"::String` (default is in the SimpleWebsockets module dir, otherwise provide an absolute path)
 
     Absolute path to your ssl key
 
 !!! info "maxReceivedFrameSize"
-    `[64 * 0x0400 = 64KiB]::Integer`
+    `64 * 0x0400::Integer` 64KiB
 
     The maximum frame size that the server will accept
 
 !!! info "maxReceivedMessageSize"
-    `[1 * 0x100000 = 1MiB]::Integer`
+    `1 * 0x100000::Integer` 1MiB
 
     The maximum assembled message size that the server will accept
 
 !!! info "fragmentOutgoingMessages"
-    `[true]::Bool`
+    `true::Bool`
 
     Outgoing frames are fragmented if they exceed the set threshold.
 
 !!! info "fragmentationThreshold"
-    `[16 * 0x0400 = 16KiB]::Integer`
+    `16 * 0x0400::Integer` 16KiB
 
     Outgoing frames are fragmented if they exceed this threshold.
 
