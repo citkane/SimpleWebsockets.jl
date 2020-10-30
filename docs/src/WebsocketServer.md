@@ -58,6 +58,14 @@ listen(::Function, ::WebsocketServer, ::Symbol)
         # err.log::Function > logs the error message with stack trace
     end
     ```
+!!! note ":peerError"
+    Triggered when a client tries to connect with bad conditions, eg. invalid headers
+    ```julia
+    listen(server, :peerError) do err::WebsocketError.PeerConnectError
+        # err.msg::String
+        # err.log::Function > logs the error message with stack trace
+    end
+    ```
 !!! note ":closed"
     Triggered when the server TCP socket closes
     ```julia

@@ -17,6 +17,7 @@ makedocs(
             "Client Options" => "ClientOptions.md",
         ],
         "Websocket Connection" => "WebsocketConnection.md",
+        "Authorization" => "Authorization.md",
         "Error handling" => "Errors.md",
         "Acknowledgments" => "Acknowledgments.md"
     ]

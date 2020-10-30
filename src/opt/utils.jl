@@ -17,6 +17,7 @@ struct Closereason
         )
     end
 end
+
 function parsedescription(description::String)::Array{Union{String, Int, Nothing}, 1}
     reg = r"^\[(\d+)*?\]"
     code = nothing
@@ -54,69 +55,6 @@ function validateCloseReason(code::Int)
         return false;
     end
 end
-"""
-    abstract type WebsocketError <: Exception
-WebsocketError child error types have the following fields:
-- msg::String
-- log::Function
-
-The `log()` function will internally call: @error msg  exception = (err, trace)
-
-Where `trace` is the backtrace of the exception origin.
-"""
-abstract type WebsocketError <: Exception end
-function msg(err::Exception)
-    try
-        return err.msg
-    catch
-        return string(typeof(err))
-    end
-    # hasfield(typeof(err), :msg) ? err.msg : string(typeof(err)) #hasfield needs julia >= 1.2
-end
-logError(self::Exception, err::Exception, trace::Array) = @error string(typeof(self))*"(\"$(self.msg)\")" exception = (err, trace)
-"""
-    struct ConnectError <: WebsocketError 
-An exception originated while trying to start a server or connect to a server
-"""
-struct ConnectError <: WebsocketError
-    msg::String
-    log::Function
-    function ConnectError(err::Exception, trace::Array = [])
-        self = new(
-            msg(err),
-            () -> logError(self, err, trace)
-        )
-    end
-end
-"""
-    struct CallbackError <: WebsocketError
-An exception originated in a user provided callback function
-"""
-struct CallbackError <: WebsocketError
-    msg::String
-    log::Function
-    function CallbackError(err::Exception, trace::Array = [])
-        self = new(
-            msg(err),
-            () -> logError(self, err, trace)
-        )
-    end
-end
-"""
-    struct FrameError <: WebsocketError
-An exception originated while parsing a websocket data frame
-"""
-struct FrameError <: WebsocketError
-    msg::String
-    log::Function
-    function FrameError(err::Exception, trace::Array = [])
-        self = new(
-            msg(err),
-            () -> logError(self, err, trace)
-        )
-    end
-end
-
 
 requestHash() = base64encode(rand(UInt8, 16))
 function acceptHash(key::String)
@@ -162,4 +100,66 @@ function explain(object::Any)
         println(field, " | ", typeof(value), " | ", value)
     end
     println("----------------------------------")
+end
+"""
+    (headers, queries, basicauth)
+
+Provides:
+- `headers::NamedTuple` All request headers 
+- `queries::NamedTuple` All request query parameters
+- `basicauth::Function` returns NamedTuple(username, password) if found, or `nothing`
+
+`basicauth` will first look for basicauth details in the headers, then the parameters, returning the first one found or `nothing`
+
+Optionally, `basicauth` can be passed two parameters:
+
+`basicauth([usernamekey::String, passwordkey::String])`
+
+which define which query parameters to look up. Defaults to `("username","password")`.
+
+# Example:
+```julia
+function authfunction(details::RequestDetails)
+    headers = details.headers
+    queries = details.queries
+    auth = details.basicauth()
+
+    auth !== nothing && return auth.username === username && auth.password === password
+    return false 
+end
+```
+"""
+struct RequestDetails
+    headers::NamedTuple
+    queries::NamedTuple
+    basicauth::Function
+    function RequestDetails(headers::NamedTuple, queries::NamedTuple)
+        self = new(
+            headers,
+            queries,
+            (usernamekey::String = "username", passwordkey::String = "password") -> getbasicauth(self.headers, self.queries, usernamekey, passwordkey)
+        )
+    end
+end
+function getbasicauth(headers::NamedTuple, queries::NamedTuple, usernamekey::String, passwordkey::String)
+    try
+        auth = headers.Authorization
+        !startswith(auth, "Basic") && throw(error("not basic auth"))
+        encoded = split(auth, " ")[2]
+        length(encoded) === 0 && throw(error("nothing given"))
+        encoded = split(String(base64decode(encoded)), ":")
+        return (;
+            username = string(encoded[1]),
+            password = string(encoded[2]),
+        )
+    catch
+    end
+    try
+        return (;
+            username = queries[Symbol(usernamekey)],
+            password = queries[Symbol(passwordkey)],        
+        )
+    catch
+    end
+    return nothing
 end

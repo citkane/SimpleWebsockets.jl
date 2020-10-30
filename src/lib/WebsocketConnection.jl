@@ -12,6 +12,7 @@ struct WebsocketConnection
     clients::Union{Array{WebsocketConnection,1}, Nothing}
     messageChannel::Channel{Union{String, Array{UInt8,1}}}
     pongChannel::Channel{Union{String, Array{UInt8,1}}}
+    validate::Dict{String, Any}
 
     function WebsocketConnection(
         stream::HTTP.ConnectionPool.Transaction,
@@ -100,6 +101,7 @@ struct WebsocketConnection
             clients,                                                    #clients
             Channel{Union{String, Array{UInt8,1}}}(Inf),                #messageChannel
             Channel{Union{String, Array{UInt8,1}}}(Inf),                #pongChannel
+            Dict{String, Any}("valid" => true)                          #validate
         )
     end
 end
@@ -498,6 +500,7 @@ Only used if the `client` is in a SERVER context, otherwise NOOP.
 function Base.broadcast(client::WebsocketConnection, data::Union{Array{UInt8,1}, String, Number})
     client.clients === nothing && return
     for otherclient in client.clients
+        otherclient.validate["valid"] !== true && continue
         client.id !== otherclient.id && send(otherclient, data)
     end
 end

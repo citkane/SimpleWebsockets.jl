@@ -74,30 +74,13 @@ const clientConfig = (
 
 """
 # The default options for [`WebsocketServer`](@ref)
-!!! info "authheaders"
-    `[]::Array{String, 1}`
 
-    An array of specific request headers you want returned for auth evaluation.
 !!! info "authfunction"
     `false::Union{Bool, Function}`
 
     Provide a function with one parametre to check authentication. Must return `Bool`.
-    The provided parametre will receive a `NamedTuple` of:
-    - requested `authheaders` or all request headers
-    - if in the request, a `basicauth` field with a `NamedTuple` with username and password fields
 
-    Example:
-    ```julia
-    function authfunction(details::NamedTuple)::Bool
-        username = "foo"
-        password = "bar"
-        if hasfield(details, :basicauth)
-            auth = details.basicauth
-            return auth.username === username && auth.password === password
-        end
-        return false
-    end
-    ```
+    See [Http request validation](@ref).
 !!! info "ssl"
     `false::Bool`
 
@@ -108,12 +91,12 @@ const clientConfig = (
         reach your server port.
 
 !!! info "sslcert"
-    `"../src/etc/snakeoil.crt"::String` (default is in the SimpleWebsockets module dir, otherwise provide an absolute path)
+    `"./snakeoil/snakeoil.crt"::String` (default is in the SimpleWebsockets module dir, otherwise provide an absolute path)
 
     Absolute path to your ssl cert
 
 !!! info "sslkey"
-    `"../src/etc/snakeoil.key"::String` (default is in the SimpleWebsockets module dir, otherwise provide an absolute path)
+    `"./snakeoil/snakeoil.key"::String` (default is in the SimpleWebsockets module dir, otherwise provide an absolute path)
 
     Absolute path to your ssl key
 
@@ -181,8 +164,8 @@ const clientConfig = (
 """
 const serverConfig = (
     ssl = false,
-    sslcert = joinpath(dirname(pathof(SimpleWebsockets)), "etc/snakeoil.crt"),
-    sslkey = joinpath(dirname(pathof(SimpleWebsockets)), "etc/snakeoil.key"),
+    sslcert = normpath(joinpath(dirname(pathof(SimpleWebsockets)), "../snakeoil/snakeoil.crt")),
+    sslkey = normpath(joinpath(dirname(pathof(SimpleWebsockets)), "../snakeoil/snakeoil.key")),
     maxReceivedFrameSize = 64 * 0x0400,
     maxReceivedMessageSize = 1 * 0x100000,
     fragmentOutgoingMessages = true,
@@ -191,7 +174,6 @@ const serverConfig = (
     keepaliveTimeout = 20,
     useNagleAlgorithm = false,
     binary = false,
-    authheaders = [],
     authfunction = false,
 )
 """

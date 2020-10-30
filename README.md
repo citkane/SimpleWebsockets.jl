@@ -21,8 +21,7 @@ listen(server, :client) do client
     end
 end
 listen(server, :connectError) do err
-    logWSerror(err)
-    notify(ended, err.msg, error = true)
+    notify(ended, err, error = true)
 end
 listen(server, :closed) do details
     @warn "Server has closed" details...
@@ -55,8 +54,7 @@ listen(client, :connect) do ws
     close(ws)
 end
 listen(client, :connectError) do err
-    logWSerror(err)
-    notify(ended, err.msg, error = true)
+    notify(ended, err, error = true)
 end
 
 @async open(client, "ws://localhost:8080")

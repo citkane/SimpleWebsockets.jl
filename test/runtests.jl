@@ -61,7 +61,7 @@ include("testclients.jl")
         @info "Client passes connection errors to callback handler" wait = "wait for socket to timeout..."
         client = WebsocketClient()
         err = clientconnects(client, 8080, "ws://badurl.bad")
-        @test err isa SimpleWebsockets.ConnectError
+        @test err isa ConnectError
         @test err.msg === "Sockets.DNSError"
     end
     @testset "Client sends and receives messages up to max payload" begin

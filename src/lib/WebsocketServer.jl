@@ -24,6 +24,7 @@ struct WebsocketServer
             Dict{Symbol, Union{Bool, Function}}(
                 :client => false,
                 :connectError => false,
+                :peerError => false,
                 :closed => false,
                 :listening => false
             ),
@@ -46,6 +47,7 @@ Valid events are:
 - :listening
 - :client
 - :connectError
+- :peerError
 - :closed
 
 # Example
@@ -76,33 +78,15 @@ function listen(
     end
 end
 
-function validateAuth(server::WebsocketServer, headers::HTTP.Messages.Request)
+function validateAuth(server::WebsocketServer, headers::HTTP.Messages.Request, queries::Dict{String,String})
     if server.config.authfunction isa Function
-        local authheaders
-        basicauth = NamedTuple()
-        if length(server.config.authheaders) > 0
-            authheaders = map(server.config.authheaders) do authheader
-                (Symbol(authheader), HTTP.header(headers, authheader))
-            end
-        else
-            authheaders = map(headers.headers) do authheader
-                (Symbol(first(authheader)), last(authheader))
-            end
+        headers = map(headers.headers) do header
+            (Symbol(first(header)), last(header))
         end
-        if HTTP.hasheader(headers, "Authorization")
-            auth = HTTP.header(headers, "Authorization")
-            if startswith(auth, "Basic")
-                encoded = split(auth, " ")[2]
-                if length(encoded) > 0
-                    encoded = split(String(base64decode(encoded)), ":")
-                    basicauth = (;
-                        username = string(encoded[1]),
-                        password = string(encoded[2]),
-                    )
-                end
-            end
+        queries = map(collect(queries)) do query
+            (Symbol(first(query)), last(query))
         end
-        return server.config.authfunction((; authheaders..., basicauth = basicauth))
+        return server.config.authfunction(RequestDetails((; headers...),(; queries...)))
     end
     return true
 end
@@ -165,7 +149,18 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
             try
                 headers = io.message
                 validateUpgrade(headers)
-                if !validateAuth(self, headers)
+                queries = HTTP.queryparams(parse(HTTP.URI, io.message.target))
+                length(queries) === 0 && (queries = Dict{String, String}())
+                if !validateAuth(self, headers, queries)
+                    try
+                        throw(error("Invalid authorization"))
+                    catch err
+                        err = PeerConnectError(err, catch_backtrace())
+                        callback = self.callbacks[:peerError]
+                        if callback isa Function
+                            callback(err)
+                        end
+                    end
                     HTTP.setstatus(io, 401)
                     startwrite(io)
                     return
@@ -185,7 +180,11 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
                 end
                 startConnection(client, io)
             catch err
-                @error err exception = (err, catch_backtrace())
+                err = PeerConnectError(err, catch_backtrace())
+                callback = self.callbacks[:peerError]
+                if callback isa Function
+                    callback(err)
+                end
                 HTTP.setstatus(io, 400)
                 startwrite(io)
             end
@@ -207,6 +206,7 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
             callback(err)
         else
             err.log()
+            exit()
         end
     end
 end
@@ -222,6 +222,7 @@ emit(server, "Hello everybody from your loving server.")
 """
 function emit(self::WebsocketServer, data::Union{Array{UInt8,1}, String, Number})
     for client in self.server[:clients]
+        otherclient.validate["valid"] !== true && continue
         send(client, data)
     end
 end

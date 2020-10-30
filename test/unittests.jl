@@ -25,14 +25,10 @@ for errtype in [SimpleWebsockets.ConnectError, SimpleWebsockets.CallbackError, S
         1 ÷ 0
     catch err
         @suppress_err begin
-            @test_nowarn logWSerror(err)
-            @test_throws Exception throwWSerror(err)
             err = errtype(err, catch_backtrace())
             @test err isa errtype
             @test err.msg === "DivideError"
             @test_nowarn err.log()
-            @test_nowarn logWSerror(err)
-            @test_throws errtype throwWSerror(err)
         end
     end
 end
