@@ -222,7 +222,7 @@ emit(server, "Hello everybody from your loving server.")
 """
 function emit(self::WebsocketServer, data::Union{Array{UInt8,1}, String, Number})
     for client in self.server[:clients]
-        otherclient.validate["valid"] !== true && continue
+        client.validate["valid"] !== true && continue
         send(client, data)
     end
 end
