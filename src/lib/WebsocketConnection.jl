@@ -62,9 +62,9 @@ struct WebsocketConnection
             for buffer in collect(self.buffers)
                 close(buffer)
             end
-            callback = self.callbacks[:close]
-            if callback isa Function
-                callback((; code = reason.code, description = reason.description))
+            closecallback = self.callbacks[:close]
+            if closecallback isa Function
+                closecallback((; code = reason.code, description = reason.description))
             elseif config.type === "client"
                 @warn "$(config.type) websocket connection closed." code = reason.code description = reason.description
             end
@@ -134,9 +134,9 @@ function listen(
     if haskey(self.callbacks, key)
         function errorHandler(err, trace)
             err = CallbackError(err, trace)
-            callback = self.callbacks[:error]
-            if callback !== false && key !== :error
-                callback(err)
+            errcallback = self.callbacks[:error]
+            if errcallback !== false && key !== :error
+                errcallback(err)
             else
                 err.log()
                 exit()

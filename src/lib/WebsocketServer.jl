@@ -135,8 +135,8 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
             tlsconfig = HTTP.Servers.SSLConfig(config.sslcert, config.sslkey)
             options = merge(options, (; sslconfig = tlsconfig))
         end
-        callback = self.callbacks[:client]
-        callback === false && throw(error("tried to bind the server before registering \":client\" handler"))
+        clientcallback = self.callbacks[:client]
+        clientcallback === false && throw(error("tried to bind the server before registering \":client\" handler"))
         self.server[:server] = Sockets.listen(host, port)
         
         VERSION >= v"1.3" && Sockets.nagle(self.server[:server], config.useNagleAlgorithm) #Sockets.nagle needs Julia >= 1.3
@@ -156,9 +156,9 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
                         throw(error("Invalid authorization"))
                     catch err
                         err = PeerConnectError(err, catch_backtrace())
-                        callback = self.callbacks[:peerError]
-                        if callback isa Function
-                            callback(err)
+                        errcallback = self.callbacks[:peerError]
+                        if errcallback isa Function
+                            errcallback(err)
                         end
                     end
                     HTTP.setstatus(io, 401)
@@ -174,16 +174,16 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
                 startwrite(io)
                 client = WebsocketConnection(io.stream, config, self.server[:clients])
                 push!(self.server[:clients], client)
-                callback(client)
+                clientcallback(client)
                 if HTTP.hasheader(headers, "Sec-WebSocket-Extensions")
                     @warn "Websocket extensions not implemented" header = HTTP.header(headers, "Sec-WebSocket-Extensions")
                 end
                 startConnection(client, io)
             catch err
                 err = PeerConnectError(err, catch_backtrace())
-                callback = self.callbacks[:peerError]
-                if callback isa Function
-                    callback(err)
+                errcallback = self.callbacks[:peerError]
+                if errcallback isa Function
+                    errcallback(err)
                 end
                 HTTP.setstatus(io, 400)
                 startwrite(io)
@@ -192,18 +192,18 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
     catch err
         self.flags[:isopen] = false
         if typeof(err) === Base.IOError && occursin("software caused connection abort", err.msg)
-            callback = self.callbacks[:closed]
-            if callback isa Function
-                callback((; host = host, port = port))
+            closecallback = self.callbacks[:closed]
+            if closecallback isa Function
+                closecallback((; host = host, port = port))
             else
                 @info "The websocket server was closed cleanly:" host = host port = port
             end
             return
         end
         err = ConnectError(err, catch_backtrace())
-        callback = self.callbacks[:connectError]
-        if callback isa Function
-            callback(err)
+        errcallback = self.callbacks[:connectError]
+        if errcallback isa Function
+            errcallback(err)
         else
             err.log()
             exit()
