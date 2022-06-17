@@ -1,0 +1,559 @@
+2022-06-17 17:08:02,792 - root - INFO - mirror configuration:
+2022-06-17 17:08:02,792 - root - INFO -     - configfile: /home/michaeladmin/Code/SimpleWebsockets.jl/mirror.json
+2022-06-17 17:08:02,792 - root - INFO -     - outdir: julia_pkg
+2022-06-17 17:08:02,792 - root - INFO -     - path: releases/$vminor_version/$filename
+2022-06-17 17:08:02,792 - root - INFO -     - filename: julia-$version-$osarch.$extension
+2022-06-17 17:08:02,794 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:08:02,794 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): julialang-s3.julialang.org:443
+2022-06-17 17:08:02,795 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:08:02,796 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:08:02,797 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:08:02,957 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/versions.json HTTP/1.1" 200 0
+2022-06-17 17:08:02,958 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:08:02,961 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/versions.json HTTP/1.1" 200 0
+2022-06-17 17:08:02,962 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:08:03,824 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/versions.json HTTP/1.1" 200 0
+2022-06-17 17:08:03,997 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/versions.json HTTP/1.1" 200 0
+2022-06-17 17:08:04,193 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/versions.json HTTP/1.1" 200 0
+2022-06-17 17:08:04,197 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:08:04,290 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "GET /bin/versions.json HTTP/1.1" 200 703936
+2022-06-17 17:08:04,407 - root - INFO -     - versions: 0.6.0, 0.6.1, 0.6.2, 0.6.3, 0.6.4, 0.7.0, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.2.0, 1.3.0, 1.3.1, 1.4.0, 1.4.1, 1.4.2, 1.5.0, 1.5.1, 1.5.2, 1.5.3, 1.5.4, 1.6.0, 1.6.1, 1.6.2, 1.6.3, 1.6.4, 1.6.5, 1.6.6, 1.7.0, 1.7.1, 1.7.2, 1.7.3, latest
+2022-06-17 17:08:04,409 - root - INFO -     - systems: freebsd, winnt, musl, mac, linux
+2022-06-17 17:08:04,411 - root - INFO -     - architectures: aarch64, powerpc64le, armv7l, i686, x86_64
+2022-06-17 17:08:04,411 - root - INFO -     - overwrite: False
+2022-06-17 17:08:04,411 - root - INFO -     - require_latest: True
+2022-06-17 17:08:04,411 - root - INFO - START: pull Julia releases
+2022-06-17 17:08:04,413 - root - INFO - start to pull releases/v0.6/julia-0.6.0-linux-x86_64.tar.gz
+2022-06-17 17:08:04,413 - root - INFO - downloading Julia release for 0.6.0-linux-x86_64
+2022-06-17 17:08:07,775 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:08:07,778 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:08:07,781 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:08:07,785 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:08:07,790 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:08:08,399 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/linux/x64/0.6/julia--linux64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:08:08,402 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:08:08,429 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/linux/x64/0.6/julia--linux64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:08:08,432 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:08:08,433 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/linux/x64/0.6/julia--linux64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:08:08,436 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:08:08,437 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/linux/x64/0.6/julia--linux64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:08:08,440 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:08:09,415 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:08:09,418 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:08:09,499 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:08:09,501 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:08:09,505 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:08:10,395 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:08:10,419 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:08:11,551 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:08:13,711 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:08:13,718 - root - INFO - downloading from https://mirrors.ustc.edu.cn/julia-releases/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz
+2022-06-17 17:08:54,086 - root - INFO - downloading from https://mirrors.ustc.edu.cn/julia-releases/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz.asc
+2022-06-17 17:08:55,611 - gnupg - DEBUG - 35912: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmp1wlpbcri --version
+2022-06-17 17:08:55,613 - gnupg - DEBUG - stderr reader: <Thread(Thread-1 (_read_response), initial daemon)>
+2022-06-17 17:08:55,613 - gnupg - DEBUG - stdout reader: <Thread(Thread-2 (_read_data), initial daemon)>
+2022-06-17 17:08:55,615 - gnupg - DEBUG - chunk: b'gpg (GnuPG) 2.2.27\nlibgcrypt 1.9.4\nCopyright (C) 2021 Free Software Foundation, Inc.\nLicense GNU GPL-3.0-or-later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent per'
+2022-06-17 17:08:55,616 - gnupg - DEBUG - import_keys: '-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: GnuPG v1\n\nmQINBFXxFlcBEADQDEBFlzoyehPuk13Ct928WwBvb0q9OKyjz2NlYq3sL5ReTbQB\n9P5hyl68q5iJ6QTjKEaxr+Kmjhib9dQGZhtBXRa9q185Fdav48rS9rDKR5/aPXNi\n4aA0BSp7fHIDrTUGOUMB5TFpVZil+Sz4llpPKDlgG70dn3ZLBznJQKUXJWhxrheG\nogUK4'
+2022-06-17 17:08:55,618 - gnupg - DEBUG - 35915: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmp1wlpbcri --import
+2022-06-17 17:08:55,618 - gnupg - DEBUG - data copier: <Thread(Thread-3 (_copy_data), initial daemon)>, <_io.BytesIO object at 0x7f29125d0ae0>, <_io.BufferedWriter name=6>
+2022-06-17 17:08:55,618 - gnupg - DEBUG - stderr reader: <Thread(Thread-4 (_read_response), initial daemon)>
+2022-06-17 17:08:55,619 - gnupg - DEBUG - closed output, 3112 bytes sent
+2022-06-17 17:08:55,619 - gnupg - DEBUG - stdout reader: <Thread(Thread-5 (_read_data), initial daemon)>
+2022-06-17 17:08:55,623 - gnupg - DEBUG - gpg: keybox '/tmp/tmp1wlpbcri/pubring.kbx' created
+2022-06-17 17:08:55,623 - gnupg - DEBUG - gpg: /tmp/tmp1wlpbcri/trustdb.gpg: trustdb created
+2022-06-17 17:08:55,623 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:08:55,626 - gnupg - DEBUG - gpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported
+2022-06-17 17:08:55,626 - gnupg - DEBUG - [GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:08:55,626 - gnupg - DEBUG - [GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:08:55,626 - gnupg - DEBUG - gpg: Total number processed: 1
+2022-06-17 17:08:55,627 - gnupg - DEBUG - gpg:               imported: 1
+2022-06-17 17:08:55,627 - gnupg - DEBUG - [GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+2022-06-17 17:08:55,627 - gnupg - DEBUG - import_keys result: {'gpg': <gnupg.GPG object at 0x7f2912342620>, 'results': [{'fingerprint': '3673DF529D9049477F76B37566E3C7DC03D6E495', 'ok': '1', 'text': 'Not actually changed\nEntirely new key\n'}], 'fingerprints': ['3673DF529D9049477F76B37566E3C7DC03D6E495'], 'count': 1, 'no_user_id': 0, 'imported': 1, 'imported_rsa': 0, 'unchanged': 0, 'n_uids': 0, 'n_subk': 0, 'n_sigs': 0, 'n_revoc': 0, 'sec_read': 0, 'sec_imported': 0, 'sec_dups': 0, 'not_imported': 0, 'stderr': 'gpg: keybox \'/tmp/tmp1wlpbcri/pubring.kbx\' created\ngpg: /tmp/tmp1wlpbcri/trustdb.gpg: trustdb created\n[GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0\ngpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported\n[GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>\n[GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495\ngpg: Total number processed: 1\ngpg:               imported: 1\n[GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0\n', 'data': b'', 'returncode': 0}
+2022-06-17 17:08:55,627 - gnupg - DEBUG - verify_file: <_io.BufferedReader name='/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v0.6/julia-0.6.0-linux-x86_64.tar.gz.asc'>, '/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v0.6/julia-0.6.0-linux-x86_64.tar.gz'
+2022-06-17 17:08:55,627 - gnupg - DEBUG - Handling detached verification
+2022-06-17 17:08:55,627 - gnupg - DEBUG - Wrote to temp file: b'-----BEGIN PGP SIGNATURE-----\n\niQIcBAABAgAGBQJZSB4vAAoJEGbjx9wD1uSVXesQAJdxS8mpfrPd8G3w5IpVlxIz\nNo3e9o55anzRGvaFn4xA07ibq6zT1iGnzMFDC5eWZfFYWYh5dD/TNsEAJF9lCsDm\ncRpxrWGufmU2doC9aI/WvOd9GtKAFsfqXBUVbt4cICYHpMhJ9+9sZrzu19ZUVdVe\nuQ7dHKxXB3rqgT1ZIrPm8Ng/L0JkBVLPGX6wJgf0AUkFpCS81Fuh+89H+opUb16Q\nUIqrY9FtdAktWVjfREu4/2JFjuUTVX3WwDnpNw/+Qkl8WRxItGosDKdEDrGaHcSo\nodKNkSl12ilyIY7JwVEO1/6490CWUwoA/b7+2hODhmtpUdVlWiLWnAn/Mj04R6lg\nCcMMA+gpoNXYPlGM30QwRhOR1CmMuf2w5t3GFr27DHsAW06tbIz4vLYPDM+5cCQx\nv4ar9ypLu0fuG8YcHCNaw4LwkAQng9yL84zd7MX1iKhMWDLCdYaZS0Pr+WgZoNsB\ndBCAxw3YaQBKGTM99KvnZT4p03ofQum2E2OfoGYTuQhojmMzYIXaM8Ae1LsPUULO\nHHEAJU6dAQySD3DVaH/OLd54FGyFImMDUJRdV3LMiJ+dG7ZzDyeTSeADtV47r+6f\n5mFY3O6pNxfrQleWPW+9VEAJIqlDqRGS6O7JFcnAFh1THnEJiEeIIKna4VBzc26Y\nproktIt3Ra7KcTUZ9jwL\n=RId7\n-----END PGP SIGNATURE-----\n'
+2022-06-17 17:08:55,628 - gnupg - DEBUG - 35922: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmp1wlpbcri --verify /tmp/pygpgb1q0ucu9 /home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v0.6/julia-0.6.0-linux-x86_64.tar.gz
+2022-06-17 17:08:55,628 - gnupg - DEBUG - stderr reader: <Thread(Thread-6 (_read_response), initial daemon)>
+2022-06-17 17:08:55,628 - gnupg - DEBUG - stdout reader: <Thread(Thread-7 (_read_data), initial daemon)>
+2022-06-17 17:08:55,796 - gnupg - DEBUG - [GNUPG:] NEWSIG
+2022-06-17 17:08:55,796 - gnupg - DEBUG - message ignored: NEWSIG, 
+2022-06-17 17:08:55,796 - gnupg - DEBUG - gpg: Signature made Mon 19 Jun 2017 19:55:43 IST
+2022-06-17 17:08:55,796 - gnupg - DEBUG - gpg:                using RSA key 66E3C7DC03D6E495
+2022-06-17 17:08:55,796 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:08:55,796 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:08:55,796 - gnupg - DEBUG - [GNUPG:] SIG_ID 95/qbhdkCBSrKVHHiD5Gmv1qkYw 2017-06-19 1497898543
+2022-06-17 17:08:55,796 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:08:55,796 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:08:55,796 - gnupg - DEBUG - [GNUPG:] GOODSIG 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:08:55,796 - gnupg - DEBUG - gpg: Good signature from "Julia (Binary signing key) <buildbot@julialang.org>" [unknown]
+2022-06-17 17:08:55,797 - gnupg - DEBUG - [GNUPG:] VALIDSIG 3673DF529D9049477F76B37566E3C7DC03D6E495 2017-06-19 1497898543 0 4 0 1 2 00 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:08:55,797 - gnupg - DEBUG - [GNUPG:] TRUST_UNDEFINED 0 pgp
+2022-06-17 17:08:55,797 - gnupg - DEBUG - gpg: WARNING: This key is not certified with a trusted signature!
+2022-06-17 17:08:55,797 - gnupg - DEBUG - gpg:          There is no indication that the signature belongs to the owner.
+2022-06-17 17:08:55,797 - gnupg - DEBUG - Primary key fingerprint: 3673 DF52 9D90 4947 7F76  B375 66E3 C7DC 03D6 E495
+2022-06-17 17:08:55,797 - root - INFO - verifying 0.6.0-linux-x86_64 succeed
+2022-06-17 17:08:55,798 - root - INFO - start to pull releases/v0.6/julia-0.6.0-linux-i686.tar.gz
+2022-06-17 17:08:55,798 - root - INFO - downloading Julia release for 0.6.0-linux-i686
+2022-06-17 17:09:00,434 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:09:00,437 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:09:00,440 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:09:00,442 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:09:00,445 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:09:01,060 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/linux/x86/0.6/julia--linux32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:01,064 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:09:01,071 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/linux/x86/0.6/julia--linux32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:01,074 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:09:01,075 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/linux/x86/0.6/julia--linux32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:01,078 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:09:01,108 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/linux/x86/0.6/julia--linux32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:01,111 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:09:02,140 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:09:02,143 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:09:02,191 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:09:02,194 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:09:02,246 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:09:03,008 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:09:03,199 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:09:03,443 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:09:03,567 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:09:03,571 - root - INFO - downloading from https://mirrors.bfsu.edu.cn/julia-releases/bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz
+2022-06-17 17:09:12,635 - root - INFO - downloading from https://mirrors.bfsu.edu.cn/julia-releases/bin/linux/x86/0.6/julia-0.6.0-linux-i686.tar.gz.asc
+2022-06-17 17:09:13,696 - gnupg - DEBUG - 35935: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpqxku5z1n --version
+2022-06-17 17:09:13,696 - gnupg - DEBUG - stderr reader: <Thread(Thread-8 (_read_response), initial daemon)>
+2022-06-17 17:09:13,697 - gnupg - DEBUG - stdout reader: <Thread(Thread-9 (_read_data), initial daemon)>
+2022-06-17 17:09:13,700 - gnupg - DEBUG - chunk: b'gpg (GnuPG) 2.2.27\nlibgcrypt 1.9.4\nCopyright (C) 2021 Free Software Foundation, Inc.\nLicense GNU GPL-3.0-or-later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent per'
+2022-06-17 17:09:13,700 - gnupg - DEBUG - import_keys: '-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: GnuPG v1\n\nmQINBFXxFlcBEADQDEBFlzoyehPuk13Ct928WwBvb0q9OKyjz2NlYq3sL5ReTbQB\n9P5hyl68q5iJ6QTjKEaxr+Kmjhib9dQGZhtBXRa9q185Fdav48rS9rDKR5/aPXNi\n4aA0BSp7fHIDrTUGOUMB5TFpVZil+Sz4llpPKDlgG70dn3ZLBznJQKUXJWhxrheG\nogUK4'
+2022-06-17 17:09:13,702 - gnupg - DEBUG - 35938: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpqxku5z1n --import
+2022-06-17 17:09:13,702 - gnupg - DEBUG - data copier: <Thread(Thread-10 (_copy_data), initial daemon)>, <_io.BytesIO object at 0x7f29110d4db0>, <_io.BufferedWriter name=6>
+2022-06-17 17:09:13,703 - gnupg - DEBUG - closed output, 3112 bytes sent
+2022-06-17 17:09:13,703 - gnupg - DEBUG - stderr reader: <Thread(Thread-11 (_read_response), initial daemon)>
+2022-06-17 17:09:13,704 - gnupg - DEBUG - stdout reader: <Thread(Thread-12 (_read_data), initial daemon)>
+2022-06-17 17:09:13,707 - gnupg - DEBUG - gpg: keybox '/tmp/tmpqxku5z1n/pubring.kbx' created
+2022-06-17 17:09:13,707 - gnupg - DEBUG - gpg: /tmp/tmpqxku5z1n/trustdb.gpg: trustdb created
+2022-06-17 17:09:13,707 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:09:13,710 - gnupg - DEBUG - gpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported
+2022-06-17 17:09:13,710 - gnupg - DEBUG - [GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:09:13,710 - gnupg - DEBUG - [GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:09:13,710 - gnupg - DEBUG - gpg: Total number processed: 1
+2022-06-17 17:09:13,710 - gnupg - DEBUG - gpg:               imported: 1
+2022-06-17 17:09:13,711 - gnupg - DEBUG - [GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+2022-06-17 17:09:13,711 - gnupg - DEBUG - import_keys result: {'gpg': <gnupg.GPG object at 0x7f2912342dd0>, 'results': [{'fingerprint': '3673DF529D9049477F76B37566E3C7DC03D6E495', 'ok': '1', 'text': 'Not actually changed\nEntirely new key\n'}], 'fingerprints': ['3673DF529D9049477F76B37566E3C7DC03D6E495'], 'count': 1, 'no_user_id': 0, 'imported': 1, 'imported_rsa': 0, 'unchanged': 0, 'n_uids': 0, 'n_subk': 0, 'n_sigs': 0, 'n_revoc': 0, 'sec_read': 0, 'sec_imported': 0, 'sec_dups': 0, 'not_imported': 0, 'data': b'', 'stderr': 'gpg: keybox \'/tmp/tmpqxku5z1n/pubring.kbx\' created\ngpg: /tmp/tmpqxku5z1n/trustdb.gpg: trustdb created\n[GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0\ngpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported\n[GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>\n[GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495\ngpg: Total number processed: 1\ngpg:               imported: 1\n[GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0\n', 'returncode': 0}
+2022-06-17 17:09:13,711 - gnupg - DEBUG - verify_file: <_io.BufferedReader name='/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v0.6/julia-0.6.0-linux-i686.tar.gz.asc'>, '/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v0.6/julia-0.6.0-linux-i686.tar.gz'
+2022-06-17 17:09:13,711 - gnupg - DEBUG - Handling detached verification
+2022-06-17 17:09:13,711 - gnupg - DEBUG - Wrote to temp file: b'-----BEGIN PGP SIGNATURE-----\n\niQIcBAABAgAGBQJZSB4xAAoJEGbjx9wD1uSVQSoP/2eRs6KiIzjWaMCzoZTOXOgw\n1OG1sVgAkkA35fHtZabs1kieLlK403XiHRqhUSuLkcz9ahAii9XhDkpOxu9WfDCQ\nKqT0mxSm9T1OC6IjDosg8dFVncsTweQKcrPxctAYIcXGGMYwU7OXwmrkTRC98Xgg\n+Hv3HvkjUz1J1sKSSMIvF9bHjg46rV0YEcgyXK2w7uHQmMic8n99xfI5bbHCiKdM\nSPngvuw+sgojNDAhQPDXVcBOc3G9WcWJdn7M0LRen8Vbby+rbUxydFbiYy9j/zRP\nStoKanEwf8onu/tNksHngf9CoUY33JTvQu6TUbml8M1s+cewpXwRuclATS3PSLE6\n8vhVSnrXIucshSMIXQvV90xRSCAmIm3+00aBi85VCCl4Tr7Db/v7ojR64gJsQluC\nUVvy7oQ8VHMHBwHTwNLcqPcfVKmfNEN10ekAgZBSsjQciRGBjXkwXtJGT+6lLVhI\n8GFRCm6bZ9zVPzJ5SmwpBqVORErXQlSTFjxvDorcVxRILeKwjSrpGDWUlbR/jiiK\nLub33NdOKWSCri8fHmrjCsgaGrElFhIZJ61nmwHzBfuXeb/XKGnjYTDkT5g8To1+\nZLalUgP+Xo1mee6usMoXU2EApMpu3dWvHGAcpeS8hoTxq5M39SzUTB3teXBXRGAE\nMgA42gevU6swud9aCWFo\n=lLfn\n-----END PGP SIGNATURE-----\n'
+2022-06-17 17:09:13,712 - gnupg - DEBUG - 35945: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpqxku5z1n --verify /tmp/pygpgvuk3qx2r /home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v0.6/julia-0.6.0-linux-i686.tar.gz
+2022-06-17 17:09:13,712 - gnupg - DEBUG - stderr reader: <Thread(Thread-13 (_read_response), initial daemon)>
+2022-06-17 17:09:13,712 - gnupg - DEBUG - stdout reader: <Thread(Thread-14 (_read_data), initial daemon)>
+2022-06-17 17:09:13,881 - gnupg - DEBUG - [GNUPG:] NEWSIG
+2022-06-17 17:09:13,881 - gnupg - DEBUG - message ignored: NEWSIG, 
+2022-06-17 17:09:13,881 - gnupg - DEBUG - gpg: Signature made Mon 19 Jun 2017 19:55:45 IST
+2022-06-17 17:09:13,881 - gnupg - DEBUG - gpg:                using RSA key 66E3C7DC03D6E495
+2022-06-17 17:09:13,881 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:09:13,881 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:09:13,881 - gnupg - DEBUG - [GNUPG:] SIG_ID FH+iLZx+nTqpCVk58dnmdkbr/XU 2017-06-19 1497898545
+2022-06-17 17:09:13,881 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:09:13,881 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:09:13,881 - gnupg - DEBUG - [GNUPG:] GOODSIG 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:09:13,881 - gnupg - DEBUG - gpg: Good signature from "Julia (Binary signing key) <buildbot@julialang.org>" [unknown]
+2022-06-17 17:09:13,882 - gnupg - DEBUG - [GNUPG:] VALIDSIG 3673DF529D9049477F76B37566E3C7DC03D6E495 2017-06-19 1497898545 0 4 0 1 2 00 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:09:13,882 - gnupg - DEBUG - [GNUPG:] TRUST_UNDEFINED 0 pgp
+2022-06-17 17:09:13,882 - gnupg - DEBUG - gpg: WARNING: This key is not certified with a trusted signature!
+2022-06-17 17:09:13,882 - gnupg - DEBUG - gpg:          There is no indication that the signature belongs to the owner.
+2022-06-17 17:09:13,882 - gnupg - DEBUG - Primary key fingerprint: 3673 DF52 9D90 4947 7F76  B375 66E3 C7DC 03D6 E495
+2022-06-17 17:09:13,882 - root - INFO - verifying 0.6.0-linux-i686 succeed
+2022-06-17 17:09:13,882 - root - INFO - start to pull releases/v0.6/julia-0.6.0-mac64.dmg
+2022-06-17 17:09:13,882 - root - INFO - downloading Julia release for 0.6.0-mac-x86_64
+2022-06-17 17:09:17,237 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:09:17,240 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:09:17,243 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:09:17,246 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:09:17,250 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:09:17,863 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/mac/x64/0.6/julia--mac64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:17,867 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:09:17,890 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/mac/x64/0.6/julia--mac64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:17,893 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:09:17,894 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/mac/x64/0.6/julia--mac64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:17,897 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:09:18,234 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/mac/x64/0.6/julia--mac64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:18,235 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:09:18,916 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/0.6/julia-0.6.0-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:09:18,919 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:09:18,993 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/0.6/julia-0.6.0-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:09:18,997 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:09:19,072 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/0.6/julia-0.6.0-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:09:19,217 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/0.6/julia-0.6.0-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:09:19,811 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/mac/x64/0.6/julia-0.6.0-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:09:20,415 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/0.6/julia-0.6.0-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:09:20,512 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/mac/x64/0.6/julia-0.6.0-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:09:20,516 - root - INFO - downloading from https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/mac/x64/0.6/julia-0.6.0-mac64.dmg
+2022-06-17 17:09:48,001 - root - INFO - start to pull releases/v0.6/julia-0.6.0-win64.exe
+2022-06-17 17:09:48,002 - root - INFO - downloading Julia release for 0.6.0-winnt-x86_64
+2022-06-17 17:09:49,886 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:09:49,889 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:09:49,893 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:09:49,896 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:09:49,899 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:09:50,514 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/winnt/x64/0.6/julia--win64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:50,518 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:09:50,523 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/winnt/x64/0.6/julia--win64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:50,527 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:09:50,528 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/winnt/x64/0.6/julia--win64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:50,531 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:09:50,535 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/winnt/x64/0.6/julia--win64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:09:50,538 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:09:51,490 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/winnt/x64/0.6/julia-0.6.0-win64.exe HTTP/1.1" 200 0
+2022-06-17 17:09:51,494 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:09:51,577 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/winnt/x64/0.6/julia-0.6.0-win64.exe HTTP/1.1" 200 0
+2022-06-17 17:09:51,580 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:09:51,639 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/winnt/x64/0.6/julia-0.6.0-win64.exe HTTP/1.1" 200 0
+2022-06-17 17:09:51,685 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/winnt/x64/0.6/julia-0.6.0-win64.exe HTTP/1.1" 200 0
+2022-06-17 17:09:51,880 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/winnt/x64/0.6/julia-0.6.0-win64.exe HTTP/1.1" 200 0
+2022-06-17 17:09:53,022 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/winnt/x64/0.6/julia-0.6.0-win64.exe HTTP/1.1" 200 0
+2022-06-17 17:09:54,693 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/winnt/x64/0.6/julia-0.6.0-win64.exe HTTP/1.1" 200 0
+2022-06-17 17:09:54,697 - root - INFO - downloading from https://mirrors.ustc.edu.cn/julia-releases/bin/winnt/x64/0.6/julia-0.6.0-win64.exe
+2022-06-17 17:10:03,891 - root - INFO - start to pull releases/v0.6/julia-0.6.0-win32.exe
+2022-06-17 17:10:03,891 - root - INFO - downloading Julia release for 0.6.0-winnt-i686
+2022-06-17 17:10:05,780 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:10:05,783 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:10:05,786 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:10:05,789 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:10:05,793 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:10:06,408 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/winnt/x86/0.6/julia--win32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:10:06,409 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/winnt/x86/0.6/julia--win32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:10:06,412 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:10:06,416 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:10:06,416 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/winnt/x86/0.6/julia--win32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:10:06,416 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/winnt/x86/0.6/julia--win32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:10:06,421 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:10:06,424 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:10:07,193 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/winnt/x86/0.6/julia-0.6.0-win32.exe HTTP/1.1" 200 0
+2022-06-17 17:10:07,197 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:10:07,470 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/winnt/x86/0.6/julia-0.6.0-win32.exe HTTP/1.1" 200 0
+2022-06-17 17:10:07,475 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:10:07,666 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/winnt/x86/0.6/julia-0.6.0-win32.exe HTTP/1.1" 200 0
+2022-06-17 17:10:07,667 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/winnt/x86/0.6/julia-0.6.0-win32.exe HTTP/1.1" 200 0
+2022-06-17 17:10:07,877 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/winnt/x86/0.6/julia-0.6.0-win32.exe HTTP/1.1" 200 0
+2022-06-17 17:10:08,596 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/winnt/x86/0.6/julia-0.6.0-win32.exe HTTP/1.1" 200 0
+2022-06-17 17:10:08,656 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/winnt/x86/0.6/julia-0.6.0-win32.exe HTTP/1.1" 200 0
+2022-06-17 17:10:08,660 - root - INFO - downloading from https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/winnt/x86/0.6/julia-0.6.0-win32.exe
+2022-06-17 17:10:24,025 - root - INFO - start to pull releases/v1.0/julia-1.0.3-linux-x86_64.tar.gz
+2022-06-17 17:10:24,026 - root - INFO - downloading Julia release for 1.0.3-linux-x86_64
+2022-06-17 17:10:26,486 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:10:26,489 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:10:26,490 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:10:26,492 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:10:26,493 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:10:27,037 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/linux/x64/1.0/julia--linux64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:10:27,041 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:10:27,047 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/linux/x64/1.0/julia--linux64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:10:27,051 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:10:27,052 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/linux/x64/1.0/julia--linux64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:10:27,055 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:10:27,424 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/linux/x64/1.0/julia--linux64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:10:27,425 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:10:27,797 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:10:27,799 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:10:28,054 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:10:28,058 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:10:28,438 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:10:28,508 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:10:28,823 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:10:29,442 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:10:29,595 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:10:29,602 - root - INFO - downloading from https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz
+2022-06-17 17:11:05,478 - root - INFO - downloading from https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz.asc
+2022-06-17 17:11:06,434 - gnupg - DEBUG - 36039: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpzradt7n1 --version
+2022-06-17 17:11:06,435 - gnupg - DEBUG - stderr reader: <Thread(Thread-15 (_read_response), initial daemon)>
+2022-06-17 17:11:06,435 - gnupg - DEBUG - stdout reader: <Thread(Thread-16 (_read_data), initial daemon)>
+2022-06-17 17:11:06,438 - gnupg - DEBUG - chunk: b'gpg (GnuPG) 2.2.27\nlibgcrypt 1.9.4\nCopyright (C) 2021 Free Software Foundation, Inc.\nLicense GNU GPL-3.0-or-later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent per'
+2022-06-17 17:11:06,439 - gnupg - DEBUG - import_keys: '-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: GnuPG v1\n\nmQINBFXxFlcBEADQDEBFlzoyehPuk13Ct928WwBvb0q9OKyjz2NlYq3sL5ReTbQB\n9P5hyl68q5iJ6QTjKEaxr+Kmjhib9dQGZhtBXRa9q185Fdav48rS9rDKR5/aPXNi\n4aA0BSp7fHIDrTUGOUMB5TFpVZil+Sz4llpPKDlgG70dn3ZLBznJQKUXJWhxrheG\nogUK4'
+2022-06-17 17:11:06,440 - gnupg - DEBUG - 36042: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpzradt7n1 --import
+2022-06-17 17:11:06,441 - gnupg - DEBUG - data copier: <Thread(Thread-17 (_copy_data), initial daemon)>, <_io.BytesIO object at 0x7f291333b010>, <_io.BufferedWriter name=6>
+2022-06-17 17:11:06,441 - gnupg - DEBUG - stderr reader: <Thread(Thread-18 (_read_response), initial daemon)>
+2022-06-17 17:11:06,442 - gnupg - DEBUG - closed output, 3112 bytes sent
+2022-06-17 17:11:06,442 - gnupg - DEBUG - stdout reader: <Thread(Thread-19 (_read_data), initial daemon)>
+2022-06-17 17:11:06,448 - gnupg - DEBUG - gpg: keybox '/tmp/tmpzradt7n1/pubring.kbx' created
+2022-06-17 17:11:06,448 - gnupg - DEBUG - gpg: /tmp/tmpzradt7n1/trustdb.gpg: trustdb created
+2022-06-17 17:11:06,448 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:06,451 - gnupg - DEBUG - gpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported
+2022-06-17 17:11:06,451 - gnupg - DEBUG - [GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:11:06,451 - gnupg - DEBUG - [GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:11:06,452 - gnupg - DEBUG - gpg: Total number processed: 1
+2022-06-17 17:11:06,452 - gnupg - DEBUG - gpg:               imported: 1
+2022-06-17 17:11:06,452 - gnupg - DEBUG - [GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+2022-06-17 17:11:06,452 - gnupg - DEBUG - import_keys result: {'gpg': <gnupg.GPG object at 0x7f29123433a0>, 'results': [{'fingerprint': '3673DF529D9049477F76B37566E3C7DC03D6E495', 'ok': '1', 'text': 'Not actually changed\nEntirely new key\n'}], 'fingerprints': ['3673DF529D9049477F76B37566E3C7DC03D6E495'], 'count': 1, 'no_user_id': 0, 'imported': 1, 'imported_rsa': 0, 'unchanged': 0, 'n_uids': 0, 'n_subk': 0, 'n_sigs': 0, 'n_revoc': 0, 'sec_read': 0, 'sec_imported': 0, 'sec_dups': 0, 'not_imported': 0, 'data': b'', 'stderr': 'gpg: keybox \'/tmp/tmpzradt7n1/pubring.kbx\' created\ngpg: /tmp/tmpzradt7n1/trustdb.gpg: trustdb created\n[GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0\ngpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported\n[GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>\n[GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495\ngpg: Total number processed: 1\ngpg:               imported: 1\n[GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0\n', 'returncode': 0}
+2022-06-17 17:11:06,452 - gnupg - DEBUG - verify_file: <_io.BufferedReader name='/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-x86_64.tar.gz.asc'>, '/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-x86_64.tar.gz'
+2022-06-17 17:11:06,452 - gnupg - DEBUG - Handling detached verification
+2022-06-17 17:11:06,452 - gnupg - DEBUG - Wrote to temp file: b'-----BEGIN PGP SIGNATURE-----\n\niQJLBAABCAA1FiEENnPfUp2QSUd/drN1ZuPH3APW5JUFAlwYeD0XHGJ1aWxkYm90\nQGp1bGlhbGFuZy5vcmcACgkQZuPH3APW5JUfaRAAzO9PL8Tiz2jzYLbNVVnAZXHC\ntb2F6biR/R1zwMd8YOh0t+G4JUhunlitd6Lo8ieuCrtflsV5yVf0rE+ec0ZFnBL7\nUgCDhoxO8heLpMP3bwOIH+Udbn3JdqR5tDsaUbama+mQ3Ax+xyL316TNBpdEmc3w\nLXzaM+hYTF3pBUEfd9quqmTjtCQ3ZTrvAxtrsd3fCvaFqr2cuU74omBeYWMyfBQr\nZOCj8EjidDkueS9/MwgG0IzLcKJVkAvO9ytzx+vJxxpiAfrtcXkOo38xQHaRjOIe\nOqJu0Cuqi3nBrILP6x1jHOYBk8Hopko4+YG4XrQ/LP9+B/h8IDC3kWhIGN9RLjEX\ne+nivRo2Nss0KDeHoMcvMQn2+vTU7voJPO/ykFWGIprjE1hDrGqXsPfJlcwb5d4e\n+Vr8iCDNjJ7lTvsR0bGYFMuG9C7JDmbMBsdcWeqZRnMYwr21S/V26RwbQb9N9gHE\nWsZsomcubY7MGZ6MnBi2OYKB9OiksmIy/CNw3XRMZYStqtPGw8pP6b03GT1LFtKD\n6K0xoDeApffQ8C1WzMJl8wZioaZa7T7h9oKiMaMT0zGjyICTEJuiF49hGN0x6Ewa\nFl+XpimfZqQ5fjQqelDKUOrTayYzxA901xmgbqMXGYSjn7xe6pHar15hOv+IgBUe\npT1yRnbOUhs3ooSYD0o=\n=a0tO\n-----END PGP SIGNATURE-----\n'
+2022-06-17 17:11:06,453 - gnupg - DEBUG - 36049: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpzradt7n1 --verify /tmp/pygpgdgijbo05 /home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-x86_64.tar.gz
+2022-06-17 17:11:06,453 - gnupg - DEBUG - stderr reader: <Thread(Thread-20 (_read_response), initial daemon)>
+2022-06-17 17:11:06,453 - gnupg - DEBUG - stdout reader: <Thread(Thread-21 (_read_data), initial daemon)>
+2022-06-17 17:11:06,781 - gnupg - DEBUG - [GNUPG:] NEWSIG buildbot@julialang.org
+2022-06-17 17:11:06,781 - gnupg - DEBUG - message ignored: NEWSIG, buildbot@julialang.org
+2022-06-17 17:11:06,781 - gnupg - DEBUG - gpg: Signature made Tue 18 Dec 2018 04:31:57 GMT
+2022-06-17 17:11:06,781 - gnupg - DEBUG - gpg:                using RSA key 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:11:06,781 - gnupg - DEBUG - gpg:                issuer "buildbot@julialang.org"
+2022-06-17 17:11:06,781 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:06,781 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:06,782 - gnupg - DEBUG - [GNUPG:] SIG_ID 6x9ivhVnzg821j7cVdCfzxdwixA 2018-12-18 1545107517
+2022-06-17 17:11:06,782 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:06,782 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:06,782 - gnupg - DEBUG - [GNUPG:] GOODSIG 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:11:06,782 - gnupg - DEBUG - gpg: Good signature from "Julia (Binary signing key) <buildbot@julialang.org>" [unknown]
+2022-06-17 17:11:06,782 - gnupg - DEBUG - [GNUPG:] VALIDSIG 3673DF529D9049477F76B37566E3C7DC03D6E495 2018-12-18 1545107517 0 4 0 1 8 00 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:11:06,782 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:06,782 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:06,782 - gnupg - DEBUG - [GNUPG:] TRUST_UNDEFINED 0 pgp
+2022-06-17 17:11:06,782 - gnupg - DEBUG - gpg: WARNING: This key is not certified with a trusted signature!
+2022-06-17 17:11:06,782 - gnupg - DEBUG - gpg:          There is no indication that the signature belongs to the owner.
+2022-06-17 17:11:06,782 - gnupg - DEBUG - Primary key fingerprint: 3673 DF52 9D90 4947 7F76  B375 66E3 C7DC 03D6 E495
+2022-06-17 17:11:06,782 - gnupg - DEBUG - [GNUPG:] VERIFICATION_COMPLIANCE_MODE 23
+2022-06-17 17:11:06,782 - gnupg - DEBUG - message ignored: VERIFICATION_COMPLIANCE_MODE, 23
+2022-06-17 17:11:06,783 - root - INFO - verifying 1.0.3-linux-x86_64 succeed
+2022-06-17 17:11:06,783 - root - INFO - start to pull releases/v1.0/julia-1.0.3-linux-i686.tar.gz
+2022-06-17 17:11:06,783 - root - INFO - downloading Julia release for 1.0.3-linux-i686
+2022-06-17 17:11:08,682 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:11:08,683 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:11:08,686 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:11:08,686 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:11:08,686 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:11:09,292 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/linux/x86/1.0/julia--linux32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:11:09,296 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:11:09,306 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/linux/x86/1.0/julia--linux32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:11:09,310 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:11:09,311 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/linux/x86/1.0/julia--linux32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:11:09,315 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:11:09,316 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/linux/x86/1.0/julia--linux32.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:11:09,320 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:11:10,393 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:10,398 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:11:10,466 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:10,470 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:11:10,486 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:11,323 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:11,413 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:11,674 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:12,735 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:12,736 - root - INFO - downloading from https://mirrors.ustc.edu.cn/julia-releases/bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz
+2022-06-17 17:11:38,330 - root - INFO - downloading from https://mirrors.ustc.edu.cn/julia-releases/bin/linux/x86/1.0/julia-1.0.3-linux-i686.tar.gz.asc
+2022-06-17 17:11:39,184 - gnupg - DEBUG - 36103: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpx1uugepd --version
+2022-06-17 17:11:39,184 - gnupg - DEBUG - stderr reader: <Thread(Thread-22 (_read_response), initial daemon)>
+2022-06-17 17:11:39,184 - gnupg - DEBUG - stdout reader: <Thread(Thread-23 (_read_data), initial daemon)>
+2022-06-17 17:11:39,186 - gnupg - DEBUG - chunk: b'gpg (GnuPG) 2.2.27\nlibgcrypt 1.9.4\nCopyright (C) 2021 Free Software Foundation, Inc.\nLicense GNU GPL-3.0-or-later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent per'
+2022-06-17 17:11:39,186 - gnupg - DEBUG - import_keys: '-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: GnuPG v1\n\nmQINBFXxFlcBEADQDEBFlzoyehPuk13Ct928WwBvb0q9OKyjz2NlYq3sL5ReTbQB\n9P5hyl68q5iJ6QTjKEaxr+Kmjhib9dQGZhtBXRa9q185Fdav48rS9rDKR5/aPXNi\n4aA0BSp7fHIDrTUGOUMB5TFpVZil+Sz4llpPKDlgG70dn3ZLBznJQKUXJWhxrheG\nogUK4'
+2022-06-17 17:11:39,187 - gnupg - DEBUG - 36106: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpx1uugepd --import
+2022-06-17 17:11:39,187 - gnupg - DEBUG - data copier: <Thread(Thread-24 (_copy_data), initial daemon)>, <_io.BytesIO object at 0x7f2912311030>, <_io.BufferedWriter name=6>
+2022-06-17 17:11:39,187 - gnupg - DEBUG - closed output, 3112 bytes sent
+2022-06-17 17:11:39,188 - gnupg - DEBUG - stderr reader: <Thread(Thread-25 (_read_response), initial daemon)>
+2022-06-17 17:11:39,188 - gnupg - DEBUG - stdout reader: <Thread(Thread-26 (_read_data), initial daemon)>
+2022-06-17 17:11:39,191 - gnupg - DEBUG - gpg: keybox '/tmp/tmpx1uugepd/pubring.kbx' created
+2022-06-17 17:11:39,191 - gnupg - DEBUG - gpg: /tmp/tmpx1uugepd/trustdb.gpg: trustdb created
+2022-06-17 17:11:39,191 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:39,197 - gnupg - DEBUG - gpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported
+2022-06-17 17:11:39,197 - gnupg - DEBUG - [GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:11:39,197 - gnupg - DEBUG - [GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:11:39,198 - gnupg - DEBUG - gpg: Total number processed: 1
+2022-06-17 17:11:39,198 - gnupg - DEBUG - gpg:               imported: 1
+2022-06-17 17:11:39,198 - gnupg - DEBUG - [GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+2022-06-17 17:11:39,198 - gnupg - DEBUG - import_keys result: {'gpg': <gnupg.GPG object at 0x7f2912343940>, 'results': [{'fingerprint': '3673DF529D9049477F76B37566E3C7DC03D6E495', 'ok': '1', 'text': 'Not actually changed\nEntirely new key\n'}], 'fingerprints': ['3673DF529D9049477F76B37566E3C7DC03D6E495'], 'count': 1, 'no_user_id': 0, 'imported': 1, 'imported_rsa': 0, 'unchanged': 0, 'n_uids': 0, 'n_subk': 0, 'n_sigs': 0, 'n_revoc': 0, 'sec_read': 0, 'sec_imported': 0, 'sec_dups': 0, 'not_imported': 0, 'data': b'', 'stderr': 'gpg: keybox \'/tmp/tmpx1uugepd/pubring.kbx\' created\ngpg: /tmp/tmpx1uugepd/trustdb.gpg: trustdb created\n[GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0\ngpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported\n[GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>\n[GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495\ngpg: Total number processed: 1\ngpg:               imported: 1\n[GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0\n', 'returncode': 0}
+2022-06-17 17:11:39,198 - gnupg - DEBUG - verify_file: <_io.BufferedReader name='/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-i686.tar.gz.asc'>, '/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-i686.tar.gz'
+2022-06-17 17:11:39,198 - gnupg - DEBUG - Handling detached verification
+2022-06-17 17:11:39,199 - gnupg - DEBUG - Wrote to temp file: b'-----BEGIN PGP SIGNATURE-----\n\niQJLBAABCAA1FiEENnPfUp2QSUd/drN1ZuPH3APW5JUFAlwYeCwXHGJ1aWxkYm90\nQGp1bGlhbGFuZy5vcmcACgkQZuPH3APW5JU7yA/7BmCoQaUUKqOPsZEoqJK6Gh4g\ne0SKshsUXp6r9tWLuQQ1dLVg63wjJ5phnpVZYchKb8iPA7r+T5neV1G448sXqiaJ\nhM/3dv/ojOs6ttIdfRjdpOccdvJzyqvjIJCq399utpEb31zKFBUJRnCsHb8AH10G\nVMho+jxTRH+UKk4isAxUy4fv8BHcsD0cI7/1iDu+1hVm9c3xY8bJrgU+Oj11rc/b\nD+f/4bvd3iQWQ1g7QJdBIx7g56oE75QjgJAJQPLTrlxJU88vo4elbkVcOnIdLpIf\nwMvgwUtobaon3YDQqMNEHyHdwBiJF6uThuMDouulC5wLZhyDMqaPYsLtRnRFTjuW\nTvzLv9aRzReV5eMFWjXuC2wIUJdZ9JKQf1UWWbocxifarZUBp9Mda79aobGjw/Rq\nfBFcJrMsf8UlVS7snE9dO4+5LuAdoI8oOlUPSkbuDFYF8H2jpgc9dxINzNmfrxLK\nE7mffv0in/ZHKvcdSarbY25ckKc/CwFzWQkCjgNI79ltUCGVXacqC4KYa4ZjAzxV\nvJA48PHU6dkx0iMAM1LA3SiZZauPrnI3+sTJ+YNFp1oS/c8I5OGBZPmzx+cFQ+Al\nCAFty4Ycoa1PC6fqzKarb7HWQKOcHV+kUlt576Arl8nX7ENP+1HcMJjbDE6HDLQV\nSn9Y2jpOAKu8sdP/WbI=\n=TyIW\n-----END PGP SIGNATURE-----\n'
+2022-06-17 17:11:39,199 - gnupg - DEBUG - 36113: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpx1uugepd --verify /tmp/pygpgx3ssbnlz /home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-i686.tar.gz
+2022-06-17 17:11:39,199 - gnupg - DEBUG - stderr reader: <Thread(Thread-27 (_read_response), initial daemon)>
+2022-06-17 17:11:39,199 - gnupg - DEBUG - stdout reader: <Thread(Thread-28 (_read_data), initial daemon)>
+2022-06-17 17:11:39,503 - gnupg - DEBUG - [GNUPG:] NEWSIG buildbot@julialang.org
+2022-06-17 17:11:39,503 - gnupg - DEBUG - message ignored: NEWSIG, buildbot@julialang.org
+2022-06-17 17:11:39,503 - gnupg - DEBUG - gpg: Signature made Tue 18 Dec 2018 04:31:40 GMT
+2022-06-17 17:11:39,503 - gnupg - DEBUG - gpg:                using RSA key 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:11:39,503 - gnupg - DEBUG - gpg:                issuer "buildbot@julialang.org"
+2022-06-17 17:11:39,503 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:39,503 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:39,503 - gnupg - DEBUG - [GNUPG:] SIG_ID oB0XMu+i9WhiJQtyeVmKC6QH7X4 2018-12-18 1545107500
+2022-06-17 17:11:39,503 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:39,504 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:39,504 - gnupg - DEBUG - [GNUPG:] GOODSIG 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:11:39,504 - gnupg - DEBUG - gpg: Good signature from "Julia (Binary signing key) <buildbot@julialang.org>" [unknown]
+2022-06-17 17:11:39,504 - gnupg - DEBUG - [GNUPG:] VALIDSIG 3673DF529D9049477F76B37566E3C7DC03D6E495 2018-12-18 1545107500 0 4 0 1 8 00 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:11:39,504 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:39,504 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:11:39,504 - gnupg - DEBUG - [GNUPG:] TRUST_UNDEFINED 0 pgp
+2022-06-17 17:11:39,504 - gnupg - DEBUG - gpg: WARNING: This key is not certified with a trusted signature!
+2022-06-17 17:11:39,504 - gnupg - DEBUG - gpg:          There is no indication that the signature belongs to the owner.
+2022-06-17 17:11:39,504 - gnupg - DEBUG - Primary key fingerprint: 3673 DF52 9D90 4947 7F76  B375 66E3 C7DC 03D6 E495
+2022-06-17 17:11:39,504 - gnupg - DEBUG - [GNUPG:] VERIFICATION_COMPLIANCE_MODE 23
+2022-06-17 17:11:39,504 - gnupg - DEBUG - message ignored: VERIFICATION_COMPLIANCE_MODE, 23
+2022-06-17 17:11:39,505 - root - INFO - verifying 1.0.3-linux-i686 succeed
+2022-06-17 17:11:39,505 - root - INFO - start to pull releases/v1.0/julia-1.0.3-linux-aarch64.tar.gz
+2022-06-17 17:11:39,505 - root - INFO - downloading Julia release for 1.0.3-linux-aarch64
+2022-06-17 17:11:41,943 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:11:41,946 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:11:41,950 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:11:41,954 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:11:41,957 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:11:42,592 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/linux/aarch64/1.0/julia--linuxaarch64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:11:42,596 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:11:42,597 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/linux/aarch64/1.0/julia--linuxaarch64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:11:42,601 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:11:42,602 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/linux/aarch64/1.0/julia--linuxaarch64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:11:42,606 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:11:42,607 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/linux/aarch64/1.0/julia--linuxaarch64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:11:42,611 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:11:43,480 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:43,483 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:11:43,720 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:43,724 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:11:43,743 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:43,788 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:44,708 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:45,129 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:46,926 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:11:46,933 - root - INFO - downloading from https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz
+2022-06-17 17:12:20,254 - root - INFO - downloading from https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/linux/aarch64/1.0/julia-1.0.3-linux-aarch64.tar.gz.asc
+2022-06-17 17:12:22,564 - gnupg - DEBUG - 36146: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpbetyjdqg --version
+2022-06-17 17:12:22,565 - gnupg - DEBUG - stderr reader: <Thread(Thread-29 (_read_response), initial daemon)>
+2022-06-17 17:12:22,565 - gnupg - DEBUG - stdout reader: <Thread(Thread-30 (_read_data), initial daemon)>
+2022-06-17 17:12:22,567 - gnupg - DEBUG - chunk: b'gpg (GnuPG) 2.2.27\nlibgcrypt 1.9.4\nCopyright (C) 2021 Free Software Foundation, Inc.\nLicense GNU GPL-3.0-or-later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent per'
+2022-06-17 17:12:22,568 - gnupg - DEBUG - import_keys: '-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: GnuPG v1\n\nmQINBFXxFlcBEADQDEBFlzoyehPuk13Ct928WwBvb0q9OKyjz2NlYq3sL5ReTbQB\n9P5hyl68q5iJ6QTjKEaxr+Kmjhib9dQGZhtBXRa9q185Fdav48rS9rDKR5/aPXNi\n4aA0BSp7fHIDrTUGOUMB5TFpVZil+Sz4llpPKDlgG70dn3ZLBznJQKUXJWhxrheG\nogUK4'
+2022-06-17 17:12:22,569 - gnupg - DEBUG - 36149: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpbetyjdqg --import
+2022-06-17 17:12:22,569 - gnupg - DEBUG - data copier: <Thread(Thread-31 (_copy_data), initial daemon)>, <_io.BytesIO object at 0x7f2912538040>, <_io.BufferedWriter name=6>
+2022-06-17 17:12:22,570 - gnupg - DEBUG - stderr reader: <Thread(Thread-32 (_read_response), initial daemon)>
+2022-06-17 17:12:22,570 - gnupg - DEBUG - closed output, 3112 bytes sent
+2022-06-17 17:12:22,571 - gnupg - DEBUG - stdout reader: <Thread(Thread-33 (_read_data), initial daemon)>
+2022-06-17 17:12:22,574 - gnupg - DEBUG - gpg: keybox '/tmp/tmpbetyjdqg/pubring.kbx' created
+2022-06-17 17:12:22,574 - gnupg - DEBUG - gpg: /tmp/tmpbetyjdqg/trustdb.gpg: trustdb created
+2022-06-17 17:12:22,574 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:12:22,577 - gnupg - DEBUG - gpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported
+2022-06-17 17:12:22,577 - gnupg - DEBUG - [GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:12:22,577 - gnupg - DEBUG - [GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:12:22,577 - gnupg - DEBUG - gpg: Total number processed: 1
+2022-06-17 17:12:22,577 - gnupg - DEBUG - gpg:               imported: 1
+2022-06-17 17:12:22,577 - gnupg - DEBUG - [GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+2022-06-17 17:12:22,578 - gnupg - DEBUG - import_keys result: {'gpg': <gnupg.GPG object at 0x7f2912343820>, 'results': [{'fingerprint': '3673DF529D9049477F76B37566E3C7DC03D6E495', 'ok': '1', 'text': 'Not actually changed\nEntirely new key\n'}], 'fingerprints': ['3673DF529D9049477F76B37566E3C7DC03D6E495'], 'count': 1, 'no_user_id': 0, 'imported': 1, 'imported_rsa': 0, 'unchanged': 0, 'n_uids': 0, 'n_subk': 0, 'n_sigs': 0, 'n_revoc': 0, 'sec_read': 0, 'sec_imported': 0, 'sec_dups': 0, 'not_imported': 0, 'data': b'', 'stderr': 'gpg: keybox \'/tmp/tmpbetyjdqg/pubring.kbx\' created\ngpg: /tmp/tmpbetyjdqg/trustdb.gpg: trustdb created\n[GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0\ngpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported\n[GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>\n[GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495\ngpg: Total number processed: 1\ngpg:               imported: 1\n[GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0\n', 'returncode': 0}
+2022-06-17 17:12:22,578 - gnupg - DEBUG - verify_file: <_io.BufferedReader name='/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-aarch64.tar.gz.asc'>, '/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-aarch64.tar.gz'
+2022-06-17 17:12:22,578 - gnupg - DEBUG - Handling detached verification
+2022-06-17 17:12:22,578 - gnupg - DEBUG - Wrote to temp file: b'-----BEGIN PGP SIGNATURE-----\n\niQJLBAABCAA1FiEENnPfUp2QSUd/drN1ZuPH3APW5JUFAlwYeugXHGJ1aWxkYm90\nQGp1bGlhbGFuZy5vcmcACgkQZuPH3APW5JUi1hAAjW9nWFbMRlUcmSZelX81wnNO\n5pSG8jryfUhmPGTE/ePERaZQldLaRqASKtrs1i8LxizG3OCTNksBHBjDWPygdTIe\nriApWv7lTo3skwNYYuRdnDGSBwAq1lt73cZtteiveIbNnajhnD/bheY67hF+5uWh\ncY42oRoULKJjjWf0hbmTM2uNUS+K3KFqPEAr5z1Bi4uzfS+BH9cEDG7pRPz//rWZ\nztlZTuW5WFvNPdT17ffae8jySLw4sf38gec9rnY/StAiNJ5VPc3lBlsnbsn73IJ0\n94EApTwUoM9EN2QPiOxdU0k3sbYeExK/0a8PxFYj0IKNavM/QdZUlm6tTpdyp5Rb\n7s3Ql+53ORllkbq0bIErvBijZ+Z1pl8PbzmZ65Th2NeuS0ZUenQSICvsuY2B0fx6\nPHsdF6UtOSA76ABeS/1EmGn1AjRWtWFiLQcpQGJaUh74CBJNhHzgHuqu/e4Exo3r\nMqF0AyEejDoy5ALkjFyf4W69tGgw3w7EiGyGi5seHNF4GqVwnOi+nEOIYfcaquaJ\nmPCJfPjhce9jIbr1oUyavHoFHGkTsHsUI8tkY6nAUuFYjQr/R1PoG83SttlBBh/W\nOvz9QEQ/u1SDfLAXClhTZd8stkv86kZ3XCCbs/eE7BKjcHWP+/GbWa53hr7FsIr6\nK7Ijve1pAv7W0YuAR6k=\n=PrF2\n-----END PGP SIGNATURE-----\n'
+2022-06-17 17:12:22,578 - gnupg - DEBUG - 36156: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpbetyjdqg --verify /tmp/pygpgf9innm1e /home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-aarch64.tar.gz
+2022-06-17 17:12:22,578 - gnupg - DEBUG - stderr reader: <Thread(Thread-34 (_read_response), initial daemon)>
+2022-06-17 17:12:22,579 - gnupg - DEBUG - stdout reader: <Thread(Thread-35 (_read_data), initial daemon)>
+2022-06-17 17:12:22,846 - gnupg - DEBUG - [GNUPG:] NEWSIG buildbot@julialang.org
+2022-06-17 17:12:22,846 - gnupg - DEBUG - message ignored: NEWSIG, buildbot@julialang.org
+2022-06-17 17:12:22,847 - gnupg - DEBUG - gpg: Signature made Tue 18 Dec 2018 04:43:20 GMT
+2022-06-17 17:12:22,847 - gnupg - DEBUG - gpg:                using RSA key 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:12:22,847 - gnupg - DEBUG - gpg:                issuer "buildbot@julialang.org"
+2022-06-17 17:12:22,847 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:12:22,847 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:12:22,847 - gnupg - DEBUG - [GNUPG:] SIG_ID LnZ0ivwwtmCMRO2JlIuWpFt/Fvs 2018-12-18 1545108200
+2022-06-17 17:12:22,847 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:12:22,847 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:12:22,847 - gnupg - DEBUG - [GNUPG:] GOODSIG 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:12:22,847 - gnupg - DEBUG - gpg: Good signature from "Julia (Binary signing key) <buildbot@julialang.org>" [unknown]
+2022-06-17 17:12:22,847 - gnupg - DEBUG - [GNUPG:] VALIDSIG 3673DF529D9049477F76B37566E3C7DC03D6E495 2018-12-18 1545108200 0 4 0 1 8 00 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:12:22,847 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:12:22,847 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:12:22,847 - gnupg - DEBUG - [GNUPG:] TRUST_UNDEFINED 0 pgp
+2022-06-17 17:12:22,847 - gnupg - DEBUG - gpg: WARNING: This key is not certified with a trusted signature!
+2022-06-17 17:12:22,847 - gnupg - DEBUG - gpg:          There is no indication that the signature belongs to the owner.
+2022-06-17 17:12:22,847 - gnupg - DEBUG - Primary key fingerprint: 3673 DF52 9D90 4947 7F76  B375 66E3 C7DC 03D6 E495
+2022-06-17 17:12:22,847 - gnupg - DEBUG - [GNUPG:] VERIFICATION_COMPLIANCE_MODE 23
+2022-06-17 17:12:22,848 - gnupg - DEBUG - message ignored: VERIFICATION_COMPLIANCE_MODE, 23
+2022-06-17 17:12:22,848 - root - INFO - verifying 1.0.3-linux-aarch64 succeed
+2022-06-17 17:12:22,848 - root - INFO - start to pull releases/v1.0/julia-1.0.3-linux-armv7l.tar.gz
+2022-06-17 17:12:22,848 - root - INFO - downloading Julia release for 1.0.3-linux-armv7l
+2022-06-17 17:12:25,780 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:12:25,783 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:12:25,786 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:12:25,790 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:12:25,792 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:12:26,367 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/linux/armv7l/1.0/julia--linuxarmv7l.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:12:26,370 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:12:26,397 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/linux/armv7l/1.0/julia--linuxarmv7l.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:12:26,400 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:12:26,400 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/linux/armv7l/1.0/julia--linuxarmv7l.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:12:26,404 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:12:26,405 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/linux/armv7l/1.0/julia--linuxarmv7l.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:12:26,408 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:12:27,121 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:12:27,124 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:12:27,436 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:12:27,438 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:12:27,453 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:12:27,470 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:12:28,493 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:12:28,714 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:12:28,995 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz HTTP/1.1" 200 0
+2022-06-17 17:12:29,000 - root - INFO - downloading from https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz
+2022-06-17 17:13:00,968 - root - INFO - downloading from https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/linux/armv7l/1.0/julia-1.0.3-linux-armv7l.tar.gz.asc
+2022-06-17 17:13:01,919 - gnupg - DEBUG - 36166: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpeljnl_wq --version
+2022-06-17 17:13:01,919 - gnupg - DEBUG - stderr reader: <Thread(Thread-36 (_read_response), initial daemon)>
+2022-06-17 17:13:01,920 - gnupg - DEBUG - stdout reader: <Thread(Thread-37 (_read_data), initial daemon)>
+2022-06-17 17:13:01,923 - gnupg - DEBUG - chunk: b'gpg (GnuPG) 2.2.27\nlibgcrypt 1.9.4\nCopyright (C) 2021 Free Software Foundation, Inc.\nLicense GNU GPL-3.0-or-later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent per'
+2022-06-17 17:13:01,923 - gnupg - DEBUG - import_keys: '-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: GnuPG v1\n\nmQINBFXxFlcBEADQDEBFlzoyehPuk13Ct928WwBvb0q9OKyjz2NlYq3sL5ReTbQB\n9P5hyl68q5iJ6QTjKEaxr+Kmjhib9dQGZhtBXRa9q185Fdav48rS9rDKR5/aPXNi\n4aA0BSp7fHIDrTUGOUMB5TFpVZil+Sz4llpPKDlgG70dn3ZLBznJQKUXJWhxrheG\nogUK4'
+2022-06-17 17:13:01,925 - gnupg - DEBUG - 36169: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpeljnl_wq --import
+2022-06-17 17:13:01,925 - gnupg - DEBUG - data copier: <Thread(Thread-38 (_copy_data), initial daemon)>, <_io.BytesIO object at 0x7f291333b010>, <_io.BufferedWriter name=6>
+2022-06-17 17:13:01,926 - gnupg - DEBUG - stderr reader: <Thread(Thread-39 (_read_response), initial daemon)>
+2022-06-17 17:13:01,926 - gnupg - DEBUG - closed output, 3112 bytes sent
+2022-06-17 17:13:01,927 - gnupg - DEBUG - stdout reader: <Thread(Thread-40 (_read_data), initial daemon)>
+2022-06-17 17:13:01,930 - gnupg - DEBUG - gpg: keybox '/tmp/tmpeljnl_wq/pubring.kbx' created
+2022-06-17 17:13:01,930 - gnupg - DEBUG - gpg: /tmp/tmpeljnl_wq/trustdb.gpg: trustdb created
+2022-06-17 17:13:01,930 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:13:01,933 - gnupg - DEBUG - gpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported
+2022-06-17 17:13:01,933 - gnupg - DEBUG - [GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:13:01,933 - gnupg - DEBUG - [GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:13:01,933 - gnupg - DEBUG - gpg: Total number processed: 1
+2022-06-17 17:13:01,933 - gnupg - DEBUG - gpg:               imported: 1
+2022-06-17 17:13:01,933 - gnupg - DEBUG - [GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+2022-06-17 17:13:01,933 - gnupg - DEBUG - import_keys result: {'gpg': <gnupg.GPG object at 0x7f29123438b0>, 'results': [{'fingerprint': '3673DF529D9049477F76B37566E3C7DC03D6E495', 'ok': '1', 'text': 'Not actually changed\nEntirely new key\n'}], 'fingerprints': ['3673DF529D9049477F76B37566E3C7DC03D6E495'], 'count': 1, 'no_user_id': 0, 'imported': 1, 'imported_rsa': 0, 'unchanged': 0, 'n_uids': 0, 'n_subk': 0, 'n_sigs': 0, 'n_revoc': 0, 'sec_read': 0, 'sec_imported': 0, 'sec_dups': 0, 'not_imported': 0, 'data': b'', 'stderr': 'gpg: keybox \'/tmp/tmpeljnl_wq/pubring.kbx\' created\ngpg: /tmp/tmpeljnl_wq/trustdb.gpg: trustdb created\n[GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0\ngpg: key 66E3C7DC03D6E495: public key "Julia (Binary signing key) <buildbot@julialang.org>" imported\n[GNUPG:] IMPORTED 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>\n[GNUPG:] IMPORT_OK 1 3673DF529D9049477F76B37566E3C7DC03D6E495\ngpg: Total number processed: 1\ngpg:               imported: 1\n[GNUPG:] IMPORT_RES 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0\n', 'returncode': 0}
+2022-06-17 17:13:01,934 - gnupg - DEBUG - verify_file: <_io.BufferedReader name='/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-armv7l.tar.gz.asc'>, '/home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-armv7l.tar.gz'
+2022-06-17 17:13:01,934 - gnupg - DEBUG - Handling detached verification
+2022-06-17 17:13:01,934 - gnupg - DEBUG - Wrote to temp file: b'-----BEGIN PGP SIGNATURE-----\n\niQJLBAABCAA1FiEENnPfUp2QSUd/drN1ZuPH3APW5JUFAlwZkw4XHGJ1aWxkYm90\nQGp1bGlhbGFuZy5vcmcACgkQZuPH3APW5JW1vBAAwkwgaF6bCLYMrte8dRSKXnnQ\nM+IZYJ1CJ7Tjur2iiMDkN1BOSoZw99o9dTrotbLrIzEO+3e68H7hwm7Tei5XqbhV\nIWCPL3YO0tphiLG0v81vCa+HTsEDPedpBDI51MYSc+jddCSFtyVvx9YEg2Y5aTrV\ngTHR1rMDllmtL8r8gZngYWePZlGWngC2041j2LUPCWFvt0I2vFwnsNGSGOHez3jX\nhFxdzIi5bwJBo615J14gMWaklqoT+8ND5VgyTNr1M/eYqgpS3GDzsKUJO/GWRgH6\nkNBOydJxpaDv9XHYU1ScoOLr0S7ufcNG0BgCFr39e41h4YrrvKtlNt9/TM2GoQo0\n0tXy4LYZUwQVBVx3Jhxs1OmT5+5Zai/peTli1H1rt7LFIUHZHWLBQpW8Yt1bdmfL\nwGrwMTCwyrOcuFGk3kg0ooiBopEZ76co2WiPe4klf4SKbF2fWySujbqJ1i7Nkm8g\nbekSX8xhQxIfVoDtw1jNkKZm2Q7eNoqNg1T/R6yCd49d3+BvfdhHplcZ8MKyiIMs\nHtZ/HN4fp/BswAaoNv6ILy4REgNdISJ3gdo8UhcBGQCQw4c7lnVy/rceUR7ifXPn\n60BZPp70vLZMb/hXWgKeRIXKc5tq6K3yh2Hg8Pu4Iz/1p+3W33beH1oNgVexUcTN\n04lM4q/UWKRHrPGw7tU=\n=pY9x\n-----END PGP SIGNATURE-----\n'
+2022-06-17 17:13:01,934 - gnupg - DEBUG - 36176: gpg --status-fd 2 --no-tty --no-verbose --fixed-list-mode --batch --with-colons --homedir /tmp/tmpeljnl_wq --verify /tmp/pygpgycujld7s /home/michaeladmin/Code/SimpleWebsockets.jl/julia_pkg/releases/v1.0/julia-1.0.3-linux-armv7l.tar.gz
+2022-06-17 17:13:01,934 - gnupg - DEBUG - stderr reader: <Thread(Thread-41 (_read_response), initial daemon)>
+2022-06-17 17:13:01,935 - gnupg - DEBUG - stdout reader: <Thread(Thread-42 (_read_data), initial daemon)>
+2022-06-17 17:13:02,222 - gnupg - DEBUG - [GNUPG:] NEWSIG buildbot@julialang.org
+2022-06-17 17:13:02,222 - gnupg - DEBUG - message ignored: NEWSIG, buildbot@julialang.org
+2022-06-17 17:13:02,222 - gnupg - DEBUG - gpg: Signature made Wed 19 Dec 2018 00:38:38 GMT
+2022-06-17 17:13:02,222 - gnupg - DEBUG - gpg:                using RSA key 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:13:02,222 - gnupg - DEBUG - gpg:                issuer "buildbot@julialang.org"
+2022-06-17 17:13:02,222 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:13:02,222 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:13:02,222 - gnupg - DEBUG - [GNUPG:] SIG_ID Yp5AeAaNwM2hYmMSfnNKi/rbSlE 2018-12-19 1545179918
+2022-06-17 17:13:02,223 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:13:02,223 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:13:02,223 - gnupg - DEBUG - [GNUPG:] GOODSIG 66E3C7DC03D6E495 Julia (Binary signing key) <buildbot@julialang.org>
+2022-06-17 17:13:02,223 - gnupg - DEBUG - gpg: Good signature from "Julia (Binary signing key) <buildbot@julialang.org>" [unknown]
+2022-06-17 17:13:02,223 - gnupg - DEBUG - [GNUPG:] VALIDSIG 3673DF529D9049477F76B37566E3C7DC03D6E495 2018-12-19 1545179918 0 4 0 1 8 00 3673DF529D9049477F76B37566E3C7DC03D6E495
+2022-06-17 17:13:02,223 - gnupg - DEBUG - [GNUPG:] KEY_CONSIDERED 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:13:02,223 - gnupg - DEBUG - message ignored: KEY_CONSIDERED, 3673DF529D9049477F76B37566E3C7DC03D6E495 0
+2022-06-17 17:13:02,223 - gnupg - DEBUG - [GNUPG:] TRUST_UNDEFINED 0 pgp
+2022-06-17 17:13:02,223 - gnupg - DEBUG - gpg: WARNING: This key is not certified with a trusted signature!
+2022-06-17 17:13:02,223 - gnupg - DEBUG - gpg:          There is no indication that the signature belongs to the owner.
+2022-06-17 17:13:02,223 - gnupg - DEBUG - Primary key fingerprint: 3673 DF52 9D90 4947 7F76  B375 66E3 C7DC 03D6 E495
+2022-06-17 17:13:02,223 - gnupg - DEBUG - [GNUPG:] VERIFICATION_COMPLIANCE_MODE 23
+2022-06-17 17:13:02,224 - gnupg - DEBUG - message ignored: VERIFICATION_COMPLIANCE_MODE, 23
+2022-06-17 17:13:02,224 - root - INFO - verifying 1.0.3-linux-armv7l succeed
+2022-06-17 17:13:02,224 - root - INFO - start to pull releases/v1.0/julia-1.0.3-mac64.dmg
+2022-06-17 17:13:02,224 - root - INFO - downloading Julia release for 1.0.3-mac-x86_64
+2022-06-17 17:13:04,912 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): julialang-s3.julialang.org:443
+2022-06-17 17:13:04,916 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): s3.amazonaws.com:443
+2022-06-17 17:13:04,919 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): s3.amazonaws.com:443
+2022-06-17 17:13:04,924 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): s3.amazonaws.com:443
+2022-06-17 17:13:04,928 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): s3.amazonaws.com:443
+2022-06-17 17:13:05,521 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_bin/mac/x64/1.0/julia--mac64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:13:05,524 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.tuna.tsinghua.edu.cn:443
+2022-06-17 17:13:05,533 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/bin/mac/x64/1.0/julia--mac64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:13:05,536 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.bfsu.edu.cn:443
+2022-06-17 17:13:05,550 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/pretesting/mac/x64/1.0/julia--mac64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:13:05,554 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sjtug.sjtu.edu.cn:443
+2022-06-17 17:13:05,555 - urllib3.connectionpool - DEBUG - https://s3.amazonaws.com:443 "HEAD /julialangnightlies/assert_pretesting/mac/x64/1.0/julia--mac64.tar.gz HTTP/1.1" 404 0
+2022-06-17 17:13:05,558 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): opentuna.cn:443
+2022-06-17 17:13:06,649 - urllib3.connectionpool - DEBUG - https://mirrors.sjtug.sjtu.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/1.0/julia-1.0.3-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:13:06,653 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.sustech.edu.cn:443
+2022-06-17 17:13:06,696 - urllib3.connectionpool - DEBUG - https://mirrors.bfsu.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/1.0/julia-1.0.3-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:13:06,700 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): mirrors.ustc.edu.cn:443
+2022-06-17 17:13:07,293 - urllib3.connectionpool - DEBUG - https://mirrors.tuna.tsinghua.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/1.0/julia-1.0.3-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:13:07,953 - urllib3.connectionpool - DEBUG - https://julialang-s3.julialang.org:443 "HEAD /bin/mac/x64/1.0/julia-1.0.3-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:13:08,049 - urllib3.connectionpool - DEBUG - https://mirrors.sustech.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/1.0/julia-1.0.3-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:13:08,951 - urllib3.connectionpool - DEBUG - https://mirrors.ustc.edu.cn:443 "HEAD /julia-releases/bin/mac/x64/1.0/julia-1.0.3-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:13:09,888 - urllib3.connectionpool - DEBUG - https://opentuna.cn:443 "HEAD /julia-releases/bin/mac/x64/1.0/julia-1.0.3-mac64.dmg HTTP/1.1" 200 0
+2022-06-17 17:13:09,893 - root - INFO - downloading from https://mirrors.bfsu.edu.cn/julia-releases/bin/mac/x64/1.0/julia-1.0.3-mac64.dmg

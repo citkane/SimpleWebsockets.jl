@@ -3,6 +3,7 @@ using Base64, MbedTLS
 include("../src/opt/vars.jl")
 include("../src/opt/utils.jl")
 
+
 @debug "Closereason"
 reason = Closereason(CLOSE_REASON_NORMAL)
 @test reason.code === CLOSE_REASON_NORMAL
@@ -19,18 +20,20 @@ reason = Closereason(0, "[1000]parsed description")
 @test reason.description === "parsed description"
 @test reason.valid
 
+
 @debug "WebsocketError"
 for errtype in [SimpleWebsockets.ConnectError, SimpleWebsockets.CallbackError, SimpleWebsockets.FrameError]
     try
         1 ÷ 0
     catch err
+        err = errtype(err, catch_backtrace())
+        @test err isa errtype
+        @test err.msg === "DivideError"
         @suppress_err begin
-            err = errtype(err, catch_backtrace())
-            @test err isa errtype
-            @test err.msg === "DivideError"
-            @test_nowarn err.log()
+            @test !isa(try err.log() catch ex ex end, Exception)
         end
     end
+
 end
 
 @debug "requestHash"
