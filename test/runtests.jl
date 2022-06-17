@@ -6,15 +6,10 @@ include("testclients.jl")
 
 @testset "SimpleWebsockets" begin
     @info "Testing SimpleWebsockets"
-    @test_nowarn WebsocketServer()
-    @test_nowarn WebsocketClient()
-
-    server1 = WebsocketServer()
-    client = WebsocketClient()
-    @suppress begin
-        @test_nowarn listen(server1, :invalidlistener) do noop end
-        @test_nowarn listen(client, :invalidlistener) do noop end
-    end
+    server1 = @test_nowarn WebsocketServer()
+    client = @test_nowarn WebsocketClient()
+    @test server1 isa WebsocketServer
+    @test client isa WebsocketClient
 
     @testset "Unit Tests" begin
         @info "Unit Tests"
@@ -37,25 +32,27 @@ include("testclients.jl")
 
     @testset "Client connects and disconnects on ws and wss" begin
         @info "Client connects and disconnects on ws and wss"
+        
         for config in [
             (; server = (; ssl = false,), client = (; url = "ws://localhost",)),
             (; server = (; ssl = true,), client = (; url = "wss://localhost",))
         ]
             server3 = WebsocketServer(; config.server...)
             @test_nowarn echoserver(server3, 8080)
-            client = WebsocketClient()
-            @suppress begin
-                closed = @test_nowarn clientconnects(client, 8080, config.client.url)
-                @test !isopen(client)
-                @test closed isa NamedTuple
-                @test haskey(closed, :code)
-                @test haskey(closed, :description)
-                @test closed.code === 1000
-                @test closed.description === "Normal connection closure"
-                @test length(server3) === 0
-                @test_nowarn close(server3)
+            @test_nowarn client = WebsocketClient()
+            closed = @suppress_err begin
+                clientconnects(client, 8080, config.client.url)               
             end
+            @test !isopen(client)
+            @test closed isa NamedTuple
+            @test haskey(closed, :code)
+            @test haskey(closed, :description)
+            @test closed.code === 1000
+            @test closed.description === "Normal connection closure"
+            @test length(server3) === 0
+            close(server3)
         end
+        
     end
     @testset "Client passes connection errors to callback handler" begin
         @info "Client passes connection errors to callback handler" wait = "wait for socket to timeout..."
