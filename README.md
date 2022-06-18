@@ -1,6 +1,6 @@
 # SimpleWebsockets.jl 
 [![CI](https://github.com/citkane/SimpleWebsockets.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/citkane/SimpleWebsockets.jl/actions/workflows/CI.yml)
-
+[![codecov](https://codecov.io/gh/citkane/SimpleWebsockets.jl/branch/master/graph/badge.svg?token=6TDC0TA25F)](https://codecov.io/gh/citkane/SimpleWebsockets.jl)
 [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://citkane.github.io/SimpleWebsockets.jl/stable)
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://citkane.github.io/SimpleWebsockets.jl/dev)
 
