@@ -1,5 +1,5 @@
 # SimpleWebsockets.jl 
-[![Build Status](https://travis-ci.org/citkane/SimpleWebsockets.jl.svg?branch=master)](https://travis-ci.org/citkane/SimpleWebsockets.jl)
+[![CI](https://github.com/citkane/SimpleWebsockets.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/citkane/SimpleWebsockets.jl/actions/workflows/CI.yml)
 [![Coverage Status](https://coveralls.io/repos/github/citkane/SimpleWebsockets.jl/badge.svg?branch=master)](https://coveralls.io/github/citkane/SimpleWebsockets.jl?branch=master)
 [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://citkane.github.io/SimpleWebsockets.jl/stable)
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://citkane.github.io/SimpleWebsockets.jl/dev)
