@@ -7,6 +7,13 @@
 
 A flexible, powerful, high level interface for Websockets in Julia. Provides a SERVER and CLIENT.
 
+## Release 0.3 notes
+0.3 upgrades the "HTTP" package dependency to major version 1
+This breaks all functionality for Julia <=1.6
+
+## Installation
+`Pkg.add("SimpleWebsockets")`
+
 ## Basic example for SERVER
 ```julia
 using SimpleWebsockets
