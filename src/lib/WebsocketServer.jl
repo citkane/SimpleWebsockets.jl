@@ -14,9 +14,10 @@ struct WebsocketServer
     callbacks::Dict{Symbol, Union{Bool, Function}}
     flags::Dict{Symbol, Bool}
     server::Dict{Symbol, Union{Sockets.TCPServer, Array{WebsocketConnection, 1}, Nothing}}
+    location::Dict{Symbol, Union{String, Nothing, Integer}}
 
     function WebsocketServer(; config...)
-        @debug "WebsocketClient"
+        @debug "WebsocketServer initiate"
         config = merge(serverConfig, (; config...))
         config = merge(config, (; maskOutgoingPackets = false, type = "server",))
         self = new(
@@ -34,6 +35,10 @@ struct WebsocketServer
             Dict{Symbol, Union{Sockets.TCPServer, Array{WebsocketConnection, 1}, Nothing}}(
                 :clients => Array{WebsocketConnection, 1}(),
                 :socket => nothing
+            ),
+            Dict{Symbol, Union{String, Nothing, Integer}}(
+                :host => nothing,
+                :port => nothing
             )
         )
     end
@@ -128,6 +133,8 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
     @debug "WebsocketServer.listen"
     config = self.config
     options = merge(serverOptions, (; options...))
+    self.location[:port] = port
+    self.location[:host] = host
 
     try
         host = getaddrinfo(host)
@@ -139,13 +146,13 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
         clientcallback === false && throw(error("tried to bind the server before registering \":client\" handler"))
         self.server[:server] = Sockets.listen(host, port)
         
-        VERSION >= v"1.3" && Sockets.nagle(self.server[:server], config.useNagleAlgorithm) #Sockets.nagle needs Julia >= 1.3
+        Sockets.nagle(self.server[:server], config.useNagleAlgorithm)
 
         self.flags[:isopen] = true
         if self.callbacks[:listening] isa Function
             self.callbacks[:listening]((; port = port, host = host))
         end
-        HTTP.listen(; server = self.server[:server],  options...) do io
+        HTTP.listen(self.server[:server]; options...) do io
             try
                 headers = io.message
                 validateUpgrade(headers)
@@ -189,16 +196,11 @@ function serve(self::WebsocketServer, port::Int = 8080, host::String = "localhos
                 startwrite(io)
             end
         end
+        close(self)
     catch err
         self.flags[:isopen] = false
         if typeof(err) === Base.IOError && occursin("software caused connection abort", err.msg)
-            closecallback = self.callbacks[:closed]
-            if closecallback isa Function
-                closecallback((; host = host, port = port))
-            else
-                @info "The websocket server was closed cleanly:" host = host port = port
-            end
-            return
+            close(self)
         end
         err = ConnectError(err, catch_backtrace())
         errcallback = self.callbacks[:connectError]
@@ -230,7 +232,10 @@ end
     close(server::WebsocketServer)
 Gracefully disconnects all connected clients, then closes the TCP socket listener.
 """
-function Base.close(self::WebsocketServer)    
+function Base.close(self::WebsocketServer)
+    host = self.location[:host]
+    port = self.location[:port]
+
     @sync begin
         for client in self.server[:clients]
             close(client, CLOSE_REASON_GOING_AWAY)
@@ -238,9 +243,18 @@ function Base.close(self::WebsocketServer)
         end
     end
     close(self.server[:server])
-    while isopen(self.server[:server]) || isopen(self)
+    while isopen(self.server[:server])
+        @warn isopen(self.server[:server])
         sleep(0.1)
     end
+    self.flags[:isopen] = false
+    closecallback = self.callbacks[:closed]
+    if closecallback isa Function
+        closecallback((; host = host, port = port))
+    else
+        @info "The websocket server was closed cleanly:" host = host port = port
+    end
+    return
 end
 """
     isopen(server::WebsocketServer)::Bool

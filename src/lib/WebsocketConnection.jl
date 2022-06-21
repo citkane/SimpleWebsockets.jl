@@ -1,5 +1,5 @@
 include("WebsocketFrame.jl")
-const ioTypes = Union{Nothing, WebsocketFrame, HTTP.ConnectionPool.Transaction, Timer, Closereason, Array{UInt8, 1}}
+const ioTypes = Union{Nothing, WebsocketFrame, HTTP.ConnectionPool.Connection, Timer, Closereason, Array{UInt8, 1}}
 
 struct WebsocketConnection
     id::String
@@ -15,7 +15,7 @@ struct WebsocketConnection
     validate::Dict{String, Any}
 
     function WebsocketConnection(
-        stream::HTTP.ConnectionPool.Transaction,
+        stream::HTTP.ConnectionPool.Connection,
         config::NamedTuple,
         clients::Union{Array{WebsocketConnection,1}, Nothing} = nothing
     )
@@ -180,7 +180,7 @@ function gethandles(connection::WebsocketConnection, io::HTTP.Streams.Stream)
     if connection.config.type === "client"
         (; file = io, available = io,)
     else
-        (; file = io.stream, available = io.stream.c.io)
+        (; file = io.stream, available = io.stream.io)
     end
 end
 function startConnection(self::WebsocketConnection, io::HTTP.Streams.Stream)
@@ -274,6 +274,7 @@ function send(self::WebsocketConnection, data::Array{UInt8,1})
         end
     end
 end
+
 
 function sendCloseFrame(self::WebsocketConnection, reasonCode::Int, description::String)
     frame = WebsocketFrame(self.config, self.buffers, textbuffer(description));

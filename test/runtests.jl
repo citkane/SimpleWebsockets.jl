@@ -25,7 +25,7 @@ include("testclients.jl")
             @test haskey(details, :port)
             @test haskey(details, :host)
             @test details.port === 8080
-            @test details.host === getaddrinfo("localhost")
+            @test details.host === "localhost"
             @test !isopen(server2)
         end
     end
@@ -59,7 +59,7 @@ include("testclients.jl")
         client = WebsocketClient()
         err = clientconnects(client, 8080, "ws://badurl.bad")
         @test err isa ConnectError
-        @test err.msg === "Sockets.DNSError"
+        @test err.msg === "HTTP.Exceptions.ConnectError"
     end
     @testset "Client sends and receives messages up to max payload" begin
         @info "Client sends and receives messages up to max payload" (;

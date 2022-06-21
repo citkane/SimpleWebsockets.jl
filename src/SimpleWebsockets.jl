@@ -1,7 +1,6 @@
 __precompile__()
 module SimpleWebsockets
-using HTTP, Base64, Sockets, MbedTLS
-import Sockets: listen
+using HTTP, Sockets, Base64, MbedTLS
 
 export  WebsocketServer,
         WebsocketClient,
