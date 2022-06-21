@@ -37,11 +37,11 @@
 
     `false` to disable.
     !!! warning
-        Due to an underlying issue with [HTTP](https://juliaweb.github.io/HTTP.jl/stable/), 
+        Due to an underlying behaviour of [HTTP](https://juliaweb.github.io/HTTP.jl/stable/), 
         a client network disconnect will cause the connection to block in it's listen loop, 
         only registering `disconnect` when the network re-connects.
 
-        `keepaliveTimeout` uses ping/pong and will register a disconnect more efficiently
+        `keepaliveTimeout` uses ping/pong and will register a disconnect
         in network outage events.
 
 !!! info "useNagleAlgorithm"

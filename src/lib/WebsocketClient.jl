@@ -175,7 +175,7 @@ Open a new websocket client connection at the given `url`. Blocks until the conn
 
 Optionally provide custom `headers` for the http request.
 
-`; options...` are passed to the underlying [HTTP.request](https://juliaweb.github.io/HTTP.jl/stable/public_interface/#Requests-1)
+`; options...` are passed to the underlying [HTTP.request](https://juliaweb.github.io/HTTP.jl/v1.0.2/reference/#Client-Requests)
 """
 function Base.open(client::WebsocketClient, url::String, headers::Dict{String, String} = Dict{String, String}(); options...)
     makeConnection(client, url, headers; options...)

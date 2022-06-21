@@ -20,13 +20,13 @@ serverConfig
 ```
 
 ## socketOptions
-`TCP` options to pass into the underlying [HTTP.Servers.listen](https://juliaweb.github.io/HTTP.jl/stable/public_interface/#Server-/-Handlers-1)
+`TCP` options to pass into the underlying [HTTP.Servers.listen](https://juliaweb.github.io/HTTP.jl/v1.0.2/server/#HTTP.listen)
 
 Handy options:
 !!! note "tcpisvalid"
     Implement connection filtering
 
-    Example using [Sockets.getpeername](https://docs.julialang.org/en/v1.5/stdlib/Sockets/#Sockets.getpeername): 
+    Example using [Sockets.getpeername](https://docs.julialang.org/en/v1/stdlib/Sockets/#Sockets.getpeername): 
     ```julia
         using SimpleWebsockets, Sockets
         function tcpisvalid(tcp::Union{MbedTLS.SSLContext, Sockets.TCPSocket})::Bool
@@ -49,6 +49,5 @@ Handy options:
     !!! warning
         This uses the the underlying `HTTP` mechanism, which has been observed to misreport the port number.
 !!! warning "sslconfig"
-    Aspects of this option are behaving strangely in [HTTP.Servers.listen](https://juliaweb.github.io/HTTP.jl/stable/public_interface/#Server-/-Handlers-1)
-
-    Please use [`serverConfig`](@ref).ssl options instead.
+    
+    Please use [`serverConfig`](@ref).ssl options instead of passing options to [HTTP.Servers.listen](https://juliaweb.github.io/HTTP.jl/v1.0.2/server/#HTTP.listen).

@@ -6,7 +6,7 @@ Options are passed to the client at two stages:
 ```julia
 using SimpleWebsockets
 
-client = WebsocketServer([; clientOptions...])
+client = WebsocketClient([; clientOptions...])
 # ...
 open(client, url[, customHeaders::Dict{String, String}; socketOptions...])
 ```
@@ -19,7 +19,7 @@ Overrides the default clientConfig
 clientConfig
 ```
 ## `socketOptions`
-Options to pass into the underlying [HTTP.request](https://juliaweb.github.io/HTTP.jl/stable/public_interface/#Requests-1)
+Options to pass into the underlying [HTTP.request](https://juliaweb.github.io/HTTP.jl/v1.0.2/reference/#Client-Requests)
 
 Handy options:
 !!! note "require_ssl_verification"
