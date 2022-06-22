@@ -6,6 +6,9 @@ on:
       - development
     tags: '*'
   pull_request:
+  release:
+    types:
+      - published
 concurrency:
   # Skip intermediate builds: always.
   # Cancel intermediate builds: only if it is a pull request build.
